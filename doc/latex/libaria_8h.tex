@@ -1,0 +1,691 @@
+\section{/home/mfa/stuff/projects/libaria/libaria.h File Reference}
+\label{libaria_8h}\index{/home/mfa/stuff/projects/libaria/libaria.h@{/home/mfa/stuff/projects/libaria/libaria.h}}
+libaria header file 
+
+\subsection*{Data Structures}
+\begin{CompactItemize}
+\item 
+struct \bf{libaria}
+\begin{CompactList}\small\item\em The libaria\_\-t data type. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \bf{MIN}(X, Y)~(X $<$ Y ? X : Y)
+\item 
+\#define \bf{LIBARIA\_\-NICE\_\-FREE}(X)~free(X); X=NULL
+\item 
+\#define \bf{LIBARIA\_\-INIT\_\-SIZE}~63
+\item 
+\#define \bf{LIBARIA\_\-SIZE}(X)~((X) $\rightarrow$ size)
+\item 
+\#define \bf{LIBARIA\_\-LEN}(X)~((X) $\rightarrow$ len)
+\item 
+\#define \bf{LIBARIA\_\-STR}(X)~((X) $\rightarrow$ str)
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef \bf{libaria} $\ast$ \bf{libaria\_\-t}\label{libaria_8h_d3720933bb1ec48ea3dff3cd52d7d7c3}
+
+\begin{CompactList}\small\item\em The libaria\_\-t data type. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \bf{CASE} \{ \textbf{UPPER}, 
+\textbf{LOWER}, 
+\textbf{SWAP}
+ \}
+\begin{CompactList}\small\item\em Case change choice enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+unsigned long int \bf{powerup} (unsigned long int n)
+\begin{CompactList}\small\item\em Get the next power of 2. \item\end{CompactList}\item 
+\bf{libaria\_\-t} \bf{libaria\-Init} (void)
+\begin{CompactList}\small\item\em Create a libaria\_\-t instance. \item\end{CompactList}\item 
+\bf{libaria\_\-t} \bf{libaria\-Init2} (unsigned long int n)
+\begin{CompactList}\small\item\em Create a libaria\_\-t instance defining the buffer size. \item\end{CompactList}\item 
+\bf{libaria\_\-t} \bf{libaria\-Init\-Char} (char $\ast$s)
+\begin{CompactList}\small\item\em Create and initialize a libaria\_\-t instance. \item\end{CompactList}\item 
+void \bf{libaria\-Del} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Destroy a libaria\_\-t instance. \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Length} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Get string length. \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Size} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Get buffer size. \item\end{CompactList}\item 
+const char $\ast$ \bf{libaria\-Get\-Char} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Get a pointer to the string. \item\end{CompactList}\item 
+void \bf{libaria\-Resize} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Re-calculate minimum buffer size. \item\end{CompactList}\item 
+int \bf{libaria\-Update} (\bf{libaria\_\-t} str, const char $\ast$s)
+\begin{CompactList}\small\item\em Store a new string in a libaria instance. \item\end{CompactList}\item 
+int \bf{libaria\-Update\-Format} (\bf{libaria\_\-t} str, char $\ast$fmt,...)
+\begin{CompactList}\small\item\em Store a new string in a libaria instance according to a format. \item\end{CompactList}\item 
+int \bf{libaria\-Char\-At} (\bf{libaria\_\-t} str, unsigned long int i)
+\begin{CompactList}\small\item\em Get the i-th character. \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Index\-Of} (\bf{libaria\_\-t} str, char c)
+\begin{CompactList}\small\item\em Get the (first) index of a character. \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Last\-Index\-Of} (\bf{libaria\_\-t} str, char c)
+\begin{CompactList}\small\item\em Get the (last) index of a character. \item\end{CompactList}\item 
+int \bf{libaria\-Equals} (\bf{libaria\_\-t} str1, \bf{libaria\_\-t} str2)
+\begin{CompactList}\small\item\em String comparison. \item\end{CompactList}\item 
+int \bf{libaria\-Equals\-I} (\bf{libaria\_\-t} str1, \bf{libaria\_\-t} str2)
+\begin{CompactList}\small\item\em String comparison (case insensitive). \item\end{CompactList}\item 
+int \bf{libaria\-Is\-Clone} (\bf{libaria\_\-t} str1, \bf{libaria\_\-t} str2)
+\begin{CompactList}\small\item\em libaria instance comparison \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Concat} (\bf{libaria\_\-t} dst, \bf{libaria\_\-t} str1, \bf{libaria\_\-t} str2)
+\begin{CompactList}\small\item\em String concatenation. \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Concat\-In\-Place} (\bf{libaria\_\-t} str1, \bf{libaria\_\-t} str2)
+\begin{CompactList}\small\item\em String concatenation (in place). \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Concat\-In\-Place\-Char} (\bf{libaria\_\-t} str1, char $\ast$str2)
+\begin{CompactList}\small\item\em String concatenation (in place). \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Concat\-Many} (\bf{libaria\_\-t} str,...)
+\begin{CompactList}\small\item\em Concatenate lots of strings. \item\end{CompactList}\item 
+void \bf{libaria\-Copy} (\bf{libaria\_\-t} str1, \bf{libaria\_\-t} str2)
+\begin{CompactList}\small\item\em String copy. \item\end{CompactList}\item 
+void \bf{libaria\-Reverse} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em String reverse. \item\end{CompactList}\item 
+void \bf{libaria\-Make\-Single\-Space} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Remove extra space. \item\end{CompactList}\item 
+void \bf{libaria\-Lower} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Make the string lowercase. \item\end{CompactList}\item 
+void \bf{libaria\-Upper} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Make the string uppercase. \item\end{CompactList}\item 
+void \bf{libaria\-Capitalize} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Capitalize the string. \item\end{CompactList}\item 
+void \bf{libaria\-Swap\-Case} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Switch upper with lower case and vice-versa. \item\end{CompactList}\item 
+void \bf{libaria\-Strip\-L} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Remove white space from the beginning of the string. \item\end{CompactList}\item 
+void \bf{libaria\-Strip\-R} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Remove white space from the end of the string. \item\end{CompactList}\item 
+void \bf{libaria\-Strip} (\bf{libaria\_\-t} str)
+\begin{CompactList}\small\item\em Remove white space from both the beginning and the end of the string. \item\end{CompactList}\item 
+void \bf{libaria\-Import} (\bf{libaria\_\-t} str, FILE $\ast$fp)
+\begin{CompactList}\small\item\em Import from file. \item\end{CompactList}\item 
+void \bf{libaria\-Dump} (\bf{libaria\_\-t} str, FILE $\ast$fp)
+\begin{CompactList}\small\item\em Write to file. \item\end{CompactList}\item 
+int \bf{libaria\-Get\-Substring} (\bf{libaria\_\-t} dst, \bf{libaria\_\-t} str, unsigned long int a, unsigned long int b)
+\begin{CompactList}\small\item\em Get a substring. \item\end{CompactList}\item 
+int \bf{libaria\-Left} (\bf{libaria\_\-t} dst, \bf{libaria\_\-t} str, unsigned long int i)
+\begin{CompactList}\small\item\em Get a substring starting at the beginning. \item\end{CompactList}\item 
+int \bf{libaria\-Right} (\bf{libaria\_\-t} dst, \bf{libaria\_\-t} str, unsigned long int i)
+\begin{CompactList}\small\item\em Get a substring starting at the end. \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Search} (\bf{libaria\_\-t} str, char $\ast$s)
+\begin{CompactList}\small\item\em Search for a substring. \item\end{CompactList}\item 
+int \bf{libaria\-Replace} (\bf{libaria\_\-t} str, const char $\ast$s1, const char $\ast$s2)
+\begin{CompactList}\small\item\em Replace a substring with another. \item\end{CompactList}\item 
+unsigned long int \bf{libaria\-Replace\-All} (\bf{libaria\_\-t} str, const char $\ast$s1, const char $\ast$s2)
+\begin{CompactList}\small\item\em Replace all occurences of a substring with another. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+libaria header file 
+
+
+
+\subsection{Define Documentation}
+\index{libaria.h@{libaria.h}!LIBARIA_INIT_SIZE@{LIBARIA\_\-INIT\_\-SIZE}}
+\index{LIBARIA_INIT_SIZE@{LIBARIA\_\-INIT\_\-SIZE}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LIBARIA\_\-INIT\_\-SIZE~63}\label{libaria_8h_a83bc64e2f3af3557bc5f3127719fb35}
+
+
+default string size \index{libaria.h@{libaria.h}!LIBARIA_LEN@{LIBARIA\_\-LEN}}
+\index{LIBARIA_LEN@{LIBARIA\_\-LEN}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LIBARIA\_\-LEN(X)~((X) $\rightarrow$ len)}\label{libaria_8h_5567964db837fea96c58653a51b76872}
+
+
+struct libaria string length field \index{libaria.h@{libaria.h}!LIBARIA_NICE_FREE@{LIBARIA\_\-NICE\_\-FREE}}
+\index{LIBARIA_NICE_FREE@{LIBARIA\_\-NICE\_\-FREE}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LIBARIA\_\-NICE\_\-FREE(X)~free(X); X=NULL}\label{libaria_8h_bcf8eb1e769fa28f28822731342c2a3c}
+
+
+safe free(). makes the pointer NULL \index{libaria.h@{libaria.h}!LIBARIA_SIZE@{LIBARIA\_\-SIZE}}
+\index{LIBARIA_SIZE@{LIBARIA\_\-SIZE}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LIBARIA\_\-SIZE(X)~((X) $\rightarrow$ size)}\label{libaria_8h_aea2cc222807eb6de103a51379698148}
+
+
+struct libaria buffer size field \index{libaria.h@{libaria.h}!LIBARIA_STR@{LIBARIA\_\-STR}}
+\index{LIBARIA_STR@{LIBARIA\_\-STR}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LIBARIA\_\-STR(X)~((X) $\rightarrow$ str)}\label{libaria_8h_2e57c58abf117039ff1d847ed84e9371}
+
+
+struct libaria string buffer field \index{libaria.h@{libaria.h}!MIN@{MIN}}
+\index{MIN@{MIN}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(X, Y)~(X $<$ Y ? X : Y)}\label{libaria_8h_d2f3678bf5eae3684fc497130b946eae}
+
+
+simple, obvious minimum between two integers 
+
+\subsection{Function Documentation}
+\index{libaria.h@{libaria.h}!libariaCapitalize@{libariaCapitalize}}
+\index{libariaCapitalize@{libariaCapitalize}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Capitalize (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_e88f130271d6fd73cb4716e0d5236744}
+
+
+Capitalize the string. 
+
+This function makes the first character after a sequence of white space upper case \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaCharAt@{libariaCharAt}}
+\index{libariaCharAt@{libariaCharAt}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Char\-At (\bf{libaria\_\-t} {\em str}, unsigned long int {\em i})}\label{libaria_8h_fbf9f4f03495bc39c8bffb27e5493aa2}
+
+
+Get the i-th character. 
+
+This function returns the character at the position i of the stored string\par
+ The first position is 0 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \item[{\em i}]the index \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the i-th character or EOF if limits are exceeded \end{Desc}
+\index{libaria.h@{libaria.h}!libariaConcat@{libariaConcat}}
+\index{libariaConcat@{libariaConcat}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Concat (\bf{libaria\_\-t} {\em dst}, \bf{libaria\_\-t} {\em str1}, \bf{libaria\_\-t} {\em str2})}\label{libaria_8h_3220f6e6b6a98be9aa442456c3c05862}
+
+
+String concatenation. 
+
+This function concatenates str1 with str2 and puts the result in str\par
+ The buffer size of str will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]libaria\_\-t instance which will hold the result of the concatenation \item[{\em str1}]libaria\_\-t instance \item[{\em str2}]libaria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the length of str or 0 if the buffer could not be increased \end{Desc}
+\index{libaria.h@{libaria.h}!libariaConcatInPlace@{libariaConcatInPlace}}
+\index{libariaConcatInPlace@{libariaConcatInPlace}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Concat\-In\-Place (\bf{libaria\_\-t} {\em str1}, \bf{libaria\_\-t} {\em str2})}\label{libaria_8h_2580b1f9423df4b75f9e8729470fd5c1}
+
+
+String concatenation (in place). 
+
+This function concatenates str1 with str2 and keeps the result in str1\par
+ The buffer size of str1 will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]libaria\_\-t instance \item[{\em str2}]libaria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the new length of str1 or 0 if the buffer could not be increased \end{Desc}
+\index{libaria.h@{libaria.h}!libariaConcatInPlaceChar@{libariaConcatInPlaceChar}}
+\index{libariaConcatInPlaceChar@{libariaConcatInPlaceChar}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Concat\-In\-Place\-Char (\bf{libaria\_\-t} {\em str1}, char $\ast$ {\em str2})}\label{libaria_8h_4ab267e8a3d73cc674e6ee7917c46b92}
+
+
+String concatenation (in place). 
+
+Same as \doxyref{libaria\-Concat\-In\-Place()}{p.}{libaria_8h_2580b1f9423df4b75f9e8729470fd5c1} but taking a char$\ast$ as second argument \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]libaria\_\-t instance \item[{\em str2}]char$\ast$ to be appended to the string stored int str1 \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the new length of str1 or 0 if the buffer could not be increased \end{Desc}
+\index{libaria.h@{libaria.h}!libariaConcatMany@{libariaConcatMany}}
+\index{libariaConcatMany@{libariaConcatMany}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Concat\-Many (\bf{libaria\_\-t} {\em str},  {\em ...})}\label{libaria_8h_6391be0183c563980513a1b43f8e49c6}
+
+
+Concatenate lots of strings. 
+
+This function concatenates all the strings given as argument and places the result in the first argument, str. The strings which are to be concatenated have to be of type char$\ast$\par
+ The last argument must be NULL \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance which will hold the result \item[{\em ...}]lots of char$\ast$ to be concatenated. The last one must be NULL!! \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the new length of str or 0 if the buffer could not be increased \end{Desc}
+\index{libaria.h@{libaria.h}!libariaCopy@{libariaCopy}}
+\index{libariaCopy@{libariaCopy}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Copy (\bf{libaria\_\-t} {\em str1}, \bf{libaria\_\-t} {\em str2})}\label{libaria_8h_9697c9f49aabc429d6601a53388213de}
+
+
+String copy. 
+
+This function places a copy of str2 in str1. The buffer size of str1 will be increased if necessary. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]libaria\_\-t instance \item[{\em str2}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaDel@{libariaDel}}
+\index{libariaDel@{libariaDel}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Del (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_1a60900f3a528a41b5e0e554258efded}
+
+
+Destroy a libaria\_\-t instance. 
+
+Destroy and free all allocated memory used by str \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance to be freed \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaDump@{libariaDump}}
+\index{libariaDump@{libariaDump}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Dump (\bf{libaria\_\-t} {\em str}, FILE $\ast$ {\em fp})}\label{libaria_8h_90bf7a4b68a34afb94ad9166f4963916}
+
+
+Write to file. 
+
+This function writes the entire string in fp \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \item[{\em fp}]output destination \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaEquals@{libariaEquals}}
+\index{libariaEquals@{libariaEquals}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Equals (\bf{libaria\_\-t} {\em str1}, \bf{libaria\_\-t} {\em str2})}\label{libaria_8h_5540e0bb126a25690357dc79f44d86f3}
+
+
+String comparison. 
+
+This function compares the strings stored at str1 and str2 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]libaria\_\-t instance \item[{\em str2}]libaria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 if the strings are equal. 0 otherwise \end{Desc}
+\index{libaria.h@{libaria.h}!libariaEqualsI@{libariaEqualsI}}
+\index{libariaEqualsI@{libariaEqualsI}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Equals\-I (\bf{libaria\_\-t} {\em str1}, \bf{libaria\_\-t} {\em str2})}\label{libaria_8h_3e063aabdfaa263eb65d4e2efd1bb637}
+
+
+String comparison (case insensitive). 
+
+This function compares the strings stored at str1 and str2 but ignores the case \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]libaria\_\-t instance \item[{\em str2}]libaria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 if the strings are equal (modulo case). 0 otherwise \end{Desc}
+\index{libaria.h@{libaria.h}!libariaGetChar@{libariaGetChar}}
+\index{libariaGetChar@{libariaGetChar}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ libaria\-Get\-Char (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_dab0206fb9d7d4ad27b07b1e4c370714}
+
+
+Get a pointer to the string. 
+
+This function just calls the \doxyref{LIBARIA\_\-STR()}{p.}{libaria_8h_2e57c58abf117039ff1d847ed84e9371} macro, which gives the pointer to the string It returns a const char $\ast$ because you should only alter the string using the libaria functions \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a pointer to the string \end{Desc}
+\index{libaria.h@{libaria.h}!libariaGetSubstring@{libariaGetSubstring}}
+\index{libariaGetSubstring@{libariaGetSubstring}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Get\-Substring (\bf{libaria\_\-t} {\em dst}, \bf{libaria\_\-t} {\em str}, unsigned long int {\em a}, unsigned long int {\em b})}\label{libaria_8h_86622d80424f3c2623ba8574482a62a4}
+
+
+Get a substring. 
+
+This function extracts a substring from str and places it in dst \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]libaria\_\-t instance which will hold the result \item[{\em str}]libaria\_\-t instance from which the substring will be extracted \item[{\em a}]left bound \item[{\em b}]right bound \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if if fails ou succeeds, respectively \end{Desc}
+\index{libaria.h@{libaria.h}!libariaImport@{libariaImport}}
+\index{libariaImport@{libariaImport}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Import (\bf{libaria\_\-t} {\em str}, FILE $\ast$ {\em fp})}\label{libaria_8h_8ce6db32ac585e3c71516c9a31b5aa26}
+
+
+Import from file. 
+
+This function reads the contents of fp (until EOF) and puts it in str \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \item[{\em fp}]input source \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaIndexOf@{libariaIndexOf}}
+\index{libariaIndexOf@{libariaIndexOf}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Index\-Of (\bf{libaria\_\-t} {\em str}, char {\em c})}\label{libaria_8h_631f5c3bb3a413c0f5c8231b8a862c62}
+
+
+Get the (first) index of a character. 
+
+This function returns the index of the first occurence (left to right) of the character c in the stored string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \item[{\em c}]the char \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the index of the first occurence of c or EOF \end{Desc}
+\index{libaria.h@{libaria.h}!libariaInit@{libariaInit}}
+\index{libariaInit@{libariaInit}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{libaria\_\-t} libaria\-Init (void)}\label{libaria_8h_063c670cfdf35fd187ab314259488f24}
+
+
+Create a libaria\_\-t instance. 
+
+Create a libaria\_\-t instance with the default maximum string length (64 chars) This value will be reajusted when needed \begin{Desc}
+\item[Returns:]libaria\_\-t instance \end{Desc}
+\index{libaria.h@{libaria.h}!libariaInit2@{libariaInit2}}
+\index{libariaInit2@{libariaInit2}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{libaria\_\-t} libaria\-Init2 (unsigned long int {\em n})}\label{libaria_8h_39020f59f3068c2d144caaa18602cf69}
+
+
+Create a libaria\_\-t instance defining the buffer size. 
+
+Create a libaria\_\-t instance defining an initial maximum string length This is only the initial maximum. This value will be reajusted when needed \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em n}]minimum string size (will be rounded to the next power of 2) \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]libaria\_\-t instance \end{Desc}
+\index{libaria.h@{libaria.h}!libariaInitChar@{libariaInitChar}}
+\index{libariaInitChar@{libariaInitChar}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{libaria\_\-t} libaria\-Init\-Char (char $\ast$ {\em s})}\label{libaria_8h_85011878d4839149cafd038941de5547}
+
+
+Create and initialize a libaria\_\-t instance. 
+
+Create a libaria\_\-t instance and initialize it with a C string (char $\ast$) The buffer size will be powerup(strlen(s)) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em s}]string to initialize the libaria\_\-t instance with \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]libaria\_\-t instance \end{Desc}
+\index{libaria.h@{libaria.h}!libariaIsClone@{libariaIsClone}}
+\index{libariaIsClone@{libariaIsClone}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Is\-Clone (\bf{libaria\_\-t} {\em str1}, \bf{libaria\_\-t} {\em str2})}\label{libaria_8h_58d338c073fdb13e84178219f1c6de89}
+
+
+libaria instance comparison 
+
+This function compares two libaria instances\par
+ It returns true if both objects are exactly the same: equal strings and equal buffer size \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]libaria\_\-t instance \item[{\em str2}]libaria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 if the objects are equal. 0 otherwise \end{Desc}
+\index{libaria.h@{libaria.h}!libariaLastIndexOf@{libariaLastIndexOf}}
+\index{libariaLastIndexOf@{libariaLastIndexOf}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Last\-Index\-Of (\bf{libaria\_\-t} {\em str}, char {\em c})}\label{libaria_8h_feec4a2d2b126a22ecb3af0929e5f0c0}
+
+
+Get the (last) index of a character. 
+
+This function returns the index of the last occurence (first, if read right to left) of the character c in the stored string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \item[{\em c}]the char \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the index of the last occurence of c or EOF \end{Desc}
+\index{libaria.h@{libaria.h}!libariaLeft@{libariaLeft}}
+\index{libariaLeft@{libariaLeft}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Left (\bf{libaria\_\-t} {\em dst}, \bf{libaria\_\-t} {\em str}, unsigned long int {\em i})}\label{libaria_8h_2ae4e713d1b57dbbad60700299bc38ae}
+
+
+Get a substring starting at the beginning. 
+
+This function extracts a substring from str and places it in dst \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]libaria\_\-t instance which will hold the result \item[{\em str}]libaria\_\-t instance from which the substring will be extracted \item[{\em i}]the size of the substring \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if if fails ou succeeds, respectively \end{Desc}
+\index{libaria.h@{libaria.h}!libariaLength@{libariaLength}}
+\index{libariaLength@{libariaLength}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Length (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_cbe75984eb5831668834346a6a90dd23}
+
+
+Get string length. 
+
+This function just calls the \doxyref{LIBARIA\_\-LEN()}{p.}{libaria_8h_5567964db837fea96c58653a51b76872} macro. It is the same as strlen(arialib\-Get\-Char(str)) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the length of the string (number of characters, without $\backslash$0) \end{Desc}
+\index{libaria.h@{libaria.h}!libariaLower@{libariaLower}}
+\index{libariaLower@{libariaLower}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Lower (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_5ad456c76dcd6c3db93e74de0f0477c8}
+
+
+Make the string lowercase. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaMakeSingleSpace@{libariaMakeSingleSpace}}
+\index{libariaMakeSingleSpace@{libariaMakeSingleSpace}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Make\-Single\-Space (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_39a985143f4d8ac8d59e8b4b9d737cdc}
+
+
+Remove extra space. 
+
+This function replaces sequences of white space with a single space. For example, \char`\"{}a   b     c d\char`\"{} is transformed into \char`\"{}a b c d\char`\"{} \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaReplace@{libariaReplace}}
+\index{libariaReplace@{libariaReplace}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Replace (\bf{libaria\_\-t} {\em str}, const char $\ast$ {\em s1}, const char $\ast$ {\em s2})}\label{libaria_8h_baf463a1d57ce17b283cb370a292c3bb}
+
+
+Replace a substring with another. 
+
+This function searches for the first occurence of s1 in the string stored at str and replaces it with s2\par
+ The buffer size will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \item[{\em s1}]the substring to find \item[{\em s2}]the substring which will replace s1 \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 or 0 if it succeeds or fails, respectively \end{Desc}
+\index{libaria.h@{libaria.h}!libariaReplaceAll@{libariaReplaceAll}}
+\index{libariaReplaceAll@{libariaReplaceAll}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Replace\-All (\bf{libaria\_\-t} {\em str}, const char $\ast$ {\em s1}, const char $\ast$ {\em s2})}\label{libaria_8h_1e80d84570fb5abfc1333a30f9891ec6}
+
+
+Replace all occurences of a substring with another. 
+
+This function searches for all the occurences of s1 in the string stored at str and replaces them with s2\par
+ The buffer size will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \item[{\em s1}]the substring to find \item[{\em s2}]the substring which will replace s1 \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the number of replaced substrings \end{Desc}
+\index{libaria.h@{libaria.h}!libariaResize@{libariaResize}}
+\index{libariaResize@{libariaResize}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Resize (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_ce46ebe4e346312a024885f89fd4379e}
+
+
+Re-calculate minimum buffer size. 
+
+This function re-calculates the minimum buffer size that is needed to keep the current string. If it is less than the currently allocated, the extra memory will be freed\par
+ This is the only way to make the buffer smaller. All the other functions will only increase its size when needed \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance to be resized \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaReverse@{libariaReverse}}
+\index{libariaReverse@{libariaReverse}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Reverse (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_b4b59f75ff0e37e1674e48966425f87b}
+
+
+String reverse. 
+
+This function reverses the string stored in str. For example, \char`\"{}abc\char`\"{} is changed to \char`\"{}cba\char`\"{}. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaRight@{libariaRight}}
+\index{libariaRight@{libariaRight}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Right (\bf{libaria\_\-t} {\em dst}, \bf{libaria\_\-t} {\em str}, unsigned long int {\em i})}\label{libaria_8h_b4f514015e58827fa537ff724f91c9d6}
+
+
+Get a substring starting at the end. 
+
+This function extracts a substring from str and places it in dst \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]libaria\_\-t instance which will hold the result \item[{\em str}]libaria\_\-t instance from which the substring will be extracted \item[{\em i}]the size of the substring \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if if fails ou succeeds, respectively \end{Desc}
+\index{libaria.h@{libaria.h}!libariaSearch@{libariaSearch}}
+\index{libariaSearch@{libariaSearch}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Search (\bf{libaria\_\-t} {\em str}, char $\ast$ {\em s})}\label{libaria_8h_58ca8cc110dacf177cb14ef5ecba324b}
+
+
+Search for a substring. 
+
+This function searches for the first occurence of s in the string stored at str\par
+ Currently uses the KMP algorithm \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \item[{\em s}]the substring to find \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the index of str where the match occured or \doxyref{LIBARIA\_\-LEN(str)}{p.}{libaria_8h_5567964db837fea96c58653a51b76872} if s was not found \end{Desc}
+\index{libaria.h@{libaria.h}!libariaSize@{libariaSize}}
+\index{libariaSize@{libariaSize}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int libaria\-Size (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_c6de9870a4f4a1197e2652eef99cdd2f}
+
+
+Get buffer size. 
+
+This function just calls the \doxyref{LIBARIA\_\-SIZE()}{p.}{libaria_8h_aea2cc222807eb6de103a51379698148} macro, which gives the ammount of currently allocated memory. In other words, it returns the length of the biggest string that is possible to store in str \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the size of the currently allocated string buffer \end{Desc}
+\index{libaria.h@{libaria.h}!libariaStrip@{libariaStrip}}
+\index{libariaStrip@{libariaStrip}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Strip (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_795d08dfca8b9e342f87c37d9b3e33a2}
+
+
+Remove white space from both the beginning and the end of the string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaStripL@{libariaStripL}}
+\index{libariaStripL@{libariaStripL}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Strip\-L (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_9db55334a1775c77e4836c9f211b29d4}
+
+
+Remove white space from the beginning of the string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaStripR@{libariaStripR}}
+\index{libariaStripR@{libariaStripR}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Strip\-R (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_d5cd60e648da635d31c6072fcba94aa8}
+
+
+Remove white space from the end of the string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaSwapCase@{libariaSwapCase}}
+\index{libariaSwapCase@{libariaSwapCase}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Swap\-Case (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_8b6a54831e6b21de2fc2b594f3847a02}
+
+
+Switch upper with lower case and vice-versa. 
+
+This function replaces every lower case character with the correspondent upper case and vice-versa \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!libariaUpdate@{libariaUpdate}}
+\index{libariaUpdate@{libariaUpdate}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Update (\bf{libaria\_\-t} {\em str}, const char $\ast$ {\em s})}\label{libaria_8h_cd35685d63d927c15e97deeaf8de032a}
+
+
+Store a new string in a libaria instance. 
+
+This function stores the string s in the libaria instance \par
+ The buffer will not be resized. If needed, it will be increased, but to make smaller (thus freeing some memory) you must call \doxyref{libaria\-Resize()}{p.}{libaria_8h_ce46ebe4e346312a024885f89fd4379e} \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance to store a new string \item[{\em s}]char array to be stored in str \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if it fails or succeeds, respectively \end{Desc}
+\index{libaria.h@{libaria.h}!libariaUpdateFormat@{libariaUpdateFormat}}
+\index{libariaUpdateFormat@{libariaUpdateFormat}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int libaria\-Update\-Format (\bf{libaria\_\-t} {\em str}, char $\ast$ {\em fmt},  {\em ...})}\label{libaria_8h_032a2dbd5609aa59f16884c20186dc2b}
+
+
+Store a new string in a libaria instance according to a format. 
+
+This function stores a new string in the libaria instance according to a format. The format specifiers are the following:\par
+ \%s - a C null terminated string\par
+ \%d - a C int\par
+ \%A - a libaria\_\-t instance\par
+\par
+ An example: suppose you want to create the string \char`\"{}select $\ast$ from t where u='x' and p='y'\char`\"{}. Both values x and y are strings. You have one as a libaria\_\-t instance, a1, and the other as a C null terminated string, s1. The following code will do it:\par
+\par
+ libaria\-Update(str1, \char`\"{}select $\ast$ from t where u='\%A' and p='\%s'\char`\"{}, a1, s1); \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance to store a new string \item[{\em fmt}]the format string \item[{\em ...}]the remainder arguments, in the same order as they appear in fmt \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if it fails or succeeds, respectively \end{Desc}
+\index{libaria.h@{libaria.h}!libariaUpper@{libariaUpper}}
+\index{libariaUpper@{libariaUpper}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void libaria\-Upper (\bf{libaria\_\-t} {\em str})}\label{libaria_8h_a9a84b9347c8915db724372bd9df0e76}
+
+
+Make the string uppercase. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]libaria\_\-t instance \end{description}
+\end{Desc}
+\index{libaria.h@{libaria.h}!powerup@{powerup}}
+\index{powerup@{powerup}!libaria.h@{libaria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int powerup (unsigned long int {\em n})}\label{libaria_8h_9bfec8d0531ca92a93ec879468738558}
+
+
+Get the next power of 2. 
+
+This function computes the smallest k, such that k is a power of 2 and k $>$ n \par
+ If n is already a power of two, it returns 2$\ast$n \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em n}]integer (not a power of two) \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]smallest power of 2 greater than n \end{Desc}

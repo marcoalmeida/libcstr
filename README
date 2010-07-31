@@ -1,0 +1,79 @@
+Copyright (C) 2006-2010 Marco Almeida malmeida@netc.pt
+
+This file is part of libcstr.
+
+libcstr is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+libcstr is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+License for more details.
+
+You should have received a copy of the GNU General Public License
+along with libcstr; if not, write to the Free Software Foundation,
+Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+
+
+===================================
+DESCRIPTION
+===================================
+Very, very simple C string library
+
+
+===================================
+Build and Install instructions
+===================================
+
+- tar xvzf libcstr.tar.gz
+- cd libcstr-0.1 && make && make install
+- make uninstall removes all intalled files
+
+If something goes wrong: malmeida@netc.pt 
+
+
+===================================
+Documentation
+===================================
+Complete Doxygen generated documentation (both in HTML and LaTeX
+formats) may be found on the doc/ directory in the source code tree.
+
+
+===================================
+Example (build)
+===================================
+Suppose you have used libcstr on some file foo.c (an example is
+provided bellow). The following line should build just fine:
+
+gcc -Wall -pedantic -O2 -o foo foo.c -lcstr
+
+
+===================================
+Example (source)
+===================================
+/* foo.c */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <cstr.h>
+
+int main()
+{
+    cstr_t str;
+    char *s = "testing, 123\nhello, 456\t\n\tit worked";
+    unsigned long int n = 25;
+
+    str = cstrInit();
+    cstrImportCharN(str, s, n);
+    printf("*");
+    cstrDump(str, stdout);
+    printf("*");
+    printf("\n");
+    printf("#%s#, %ld", cstrGetChar(str), cstrLength(str));
+    cstrDel(str);
+
+    return 0;
+}
+

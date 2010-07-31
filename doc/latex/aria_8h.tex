@@ -1,0 +1,761 @@
+\section{/home/mfa/stuff/projects/libaria/aria.h File Reference}
+\label{aria_8h}\index{/home/mfa/stuff/projects/libaria/aria.h@{/home/mfa/stuff/projects/libaria/aria.h}}
+aria header file 
+
+\subsection*{Data Structures}
+\begin{CompactItemize}
+\item 
+struct \bf{aria}
+\begin{CompactList}\small\item\em The aria\_\-t data type. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \bf{MIN}(X, Y)~(X $<$ Y ? X : Y)
+\item 
+\#define \bf{ARIA\_\-NICE\_\-FREE}(X)~free(X); X=NULL
+\item 
+\#define \bf{ARIA\_\-INIT\_\-SIZE}~63
+\item 
+\#define \bf{ARIA\_\-SIZE}(X)~((X) $\rightarrow$ size)
+\item 
+\#define \bf{ARIA\_\-LEN}(X)~((X) $\rightarrow$ len)
+\item 
+\#define \bf{ARIA\_\-STR}(X)~((X) $\rightarrow$ str)
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef \bf{aria} $\ast$ \bf{aria\_\-t}\label{aria_8h_18ae975b371171dd2d4be5e74d1ee4f2}
+
+\begin{CompactList}\small\item\em The aria\_\-t data type. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \bf{CASE} \{ \textbf{UPPER}, 
+\textbf{LOWER}, 
+\textbf{SWAP}
+ \}
+\begin{CompactList}\small\item\em Case change choice enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+unsigned long int \bf{powerup} (unsigned long int n)
+\begin{CompactList}\small\item\em Get the next power of 2. \item\end{CompactList}\item 
+\bf{aria\_\-t} \bf{aria\-Init} (void)
+\begin{CompactList}\small\item\em Create a aria\_\-t instance. \item\end{CompactList}\item 
+\bf{aria\_\-t} \bf{aria\-Init2} (unsigned long int n)
+\begin{CompactList}\small\item\em Create a aria\_\-t instance defining the buffer size. \item\end{CompactList}\item 
+\bf{aria\_\-t} \bf{aria\-Init\-Char} (char $\ast$s)
+\begin{CompactList}\small\item\em Create and initialize a aria\_\-t instance. \item\end{CompactList}\item 
+void \bf{aria\-Del} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Destroy a aria\_\-t instance. \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Length} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Get string length. \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Size} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Get buffer size. \item\end{CompactList}\item 
+const char $\ast$ \bf{aria\-Get\-Char} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Get a pointer to the string. \item\end{CompactList}\item 
+void \bf{aria\-Resize} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Re-calculate minimum buffer size. \item\end{CompactList}\item 
+int \bf{aria\-Update} (\bf{aria\_\-t} str, const char $\ast$s)
+\begin{CompactList}\small\item\em Store a new string in a aria instance. \item\end{CompactList}\item 
+int \bf{aria\-Update\-Format} (\bf{aria\_\-t} str, char $\ast$fmt,...)
+\begin{CompactList}\small\item\em Store a new string in a aria instance according to a format. \item\end{CompactList}\item 
+int \bf{aria\-Char\-At} (\bf{aria\_\-t} str, unsigned long int i)
+\begin{CompactList}\small\item\em Get the i-th character. \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Index\-Of} (\bf{aria\_\-t} str, char c)
+\begin{CompactList}\small\item\em Get the (first) index of a character. \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Last\-Index\-Of} (\bf{aria\_\-t} str, char c)
+\begin{CompactList}\small\item\em Get the (last) index of a character. \item\end{CompactList}\item 
+int \bf{aria\-Equals} (\bf{aria\_\-t} str1, \bf{aria\_\-t} str2)
+\begin{CompactList}\small\item\em String comparison. \item\end{CompactList}\item 
+int \bf{aria\-Equals\-I} (\bf{aria\_\-t} str1, \bf{aria\_\-t} str2)
+\begin{CompactList}\small\item\em String comparison (case insensitive). \item\end{CompactList}\item 
+int \bf{aria\-Is\-Clone} (\bf{aria\_\-t} str1, \bf{aria\_\-t} str2)
+\begin{CompactList}\small\item\em aria instance comparison \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Concat} (\bf{aria\_\-t} dst, \bf{aria\_\-t} str1, \bf{aria\_\-t} str2)
+\begin{CompactList}\small\item\em String concatenation. \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Concat\-In\-Place} (\bf{aria\_\-t} str1, \bf{aria\_\-t} str2)
+\begin{CompactList}\small\item\em String concatenation (in place). \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Concat\-In\-Place\-Char} (\bf{aria\_\-t} str1, char $\ast$str2)
+\begin{CompactList}\small\item\em String concatenation (in place). \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Concat\-Many} (\bf{aria\_\-t} str,...)
+\begin{CompactList}\small\item\em Concatenate lots of strings. \item\end{CompactList}\item 
+void \bf{aria\-Copy} (\bf{aria\_\-t} str1, \bf{aria\_\-t} str2)
+\begin{CompactList}\small\item\em String copy. \item\end{CompactList}\item 
+void \bf{aria\-Reverse} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em String reverse. \item\end{CompactList}\item 
+void \bf{aria\-Make\-Single\-Space} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Remove extra space. \item\end{CompactList}\item 
+void \bf{aria\-Lower} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Make the string lowercase. \item\end{CompactList}\item 
+void \bf{aria\-Upper} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Make the string uppercase. \item\end{CompactList}\item 
+void \bf{aria\-Capitalize} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Capitalize the string. \item\end{CompactList}\item 
+void \bf{aria\-Swap\-Case} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Switch upper with lower case and vice-versa. \item\end{CompactList}\item 
+void \bf{aria\-Strip\-L} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Remove white space from the beginning of the string. \item\end{CompactList}\item 
+void \bf{aria\-Strip\-R} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Remove white space from the end of the string. \item\end{CompactList}\item 
+void \bf{aria\-Strip} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Remove white space from both the beginning and the end of the string. \item\end{CompactList}\item 
+void \bf{aria\-Import} (\bf{aria\_\-t} str, FILE $\ast$fp)
+\begin{CompactList}\small\item\em Import from file. \item\end{CompactList}\item 
+void \bf{aria\-Dump} (\bf{aria\_\-t} str, FILE $\ast$fp)
+\begin{CompactList}\small\item\em Write to file. \item\end{CompactList}\item 
+void \bf{aria\-Dump\-N} (\bf{aria\_\-t} str, FILE $\ast$fp, unsigned long int n)
+\begin{CompactList}\small\item\em Write n characters to file. \item\end{CompactList}\item 
+void \bf{aria\-Import\-N} (\bf{aria\_\-t} str, FILE $\ast$fp, unsigned long int n)
+\begin{CompactList}\small\item\em Read n characters from file. \item\end{CompactList}\item 
+void \bf{aria\-Import\-Char\-N} (\bf{aria\_\-t} str, const char $\ast$buffer, unsigned long int n)
+\begin{CompactList}\small\item\em Read n characters from a byte sequence. \item\end{CompactList}\item 
+int \bf{aria\-Get\-Substring} (\bf{aria\_\-t} dst, \bf{aria\_\-t} str, unsigned long int a, unsigned long int b)
+\begin{CompactList}\small\item\em Get a substring. \item\end{CompactList}\item 
+int \bf{aria\-Left} (\bf{aria\_\-t} dst, \bf{aria\_\-t} str, unsigned long int i)
+\begin{CompactList}\small\item\em Get a substring starting at the beginning. \item\end{CompactList}\item 
+int \bf{aria\-Right} (\bf{aria\_\-t} dst, \bf{aria\_\-t} str, unsigned long int i)
+\begin{CompactList}\small\item\em Get a substring starting at the end. \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Search} (\bf{aria\_\-t} str, char $\ast$s)
+\begin{CompactList}\small\item\em Search for a substring. \item\end{CompactList}\item 
+int \bf{aria\-Replace} (\bf{aria\_\-t} str, const char $\ast$s1, const char $\ast$s2)
+\begin{CompactList}\small\item\em Replace a substring with another. \item\end{CompactList}\item 
+unsigned long int \bf{aria\-Replace\-All} (\bf{aria\_\-t} str, const char $\ast$s1, const char $\ast$s2)
+\begin{CompactList}\small\item\em Replace all occurences of a substring with another. \item\end{CompactList}\item 
+void \bf{aria\-Decode\-URL} (\bf{aria\_\-t} str1, \bf{aria\_\-t} str2)
+\begin{CompactList}\small\item\em Decode an encoded URL. \item\end{CompactList}\item 
+void \bf{aria\-Decode\-URLIn\-Place} (\bf{aria\_\-t} str)
+\begin{CompactList}\small\item\em Decode an encoded URL (in place). \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+aria header file 
+
+
+
+\subsection{Define Documentation}
+\index{aria.h@{aria.h}!ARIA_INIT_SIZE@{ARIA\_\-INIT\_\-SIZE}}
+\index{ARIA_INIT_SIZE@{ARIA\_\-INIT\_\-SIZE}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ARIA\_\-INIT\_\-SIZE~63}\label{aria_8h_12337b4d5d97050d3752d4fe35651583}
+
+
+default string size \index{aria.h@{aria.h}!ARIA_LEN@{ARIA\_\-LEN}}
+\index{ARIA_LEN@{ARIA\_\-LEN}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ARIA\_\-LEN(X)~((X) $\rightarrow$ len)}\label{aria_8h_b0d96e62f8970620fbe88f9370780d0c}
+
+
+struct aria string length field \index{aria.h@{aria.h}!ARIA_NICE_FREE@{ARIA\_\-NICE\_\-FREE}}
+\index{ARIA_NICE_FREE@{ARIA\_\-NICE\_\-FREE}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ARIA\_\-NICE\_\-FREE(X)~free(X); X=NULL}\label{aria_8h_3bc08b3150e9f8b336a989f78bdfbe86}
+
+
+safe free(). makes the pointer NULL \index{aria.h@{aria.h}!ARIA_SIZE@{ARIA\_\-SIZE}}
+\index{ARIA_SIZE@{ARIA\_\-SIZE}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ARIA\_\-SIZE(X)~((X) $\rightarrow$ size)}\label{aria_8h_00a5eb439d8a885a7919d3202158d8d6}
+
+
+struct aria buffer size field \index{aria.h@{aria.h}!ARIA_STR@{ARIA\_\-STR}}
+\index{ARIA_STR@{ARIA\_\-STR}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ARIA\_\-STR(X)~((X) $\rightarrow$ str)}\label{aria_8h_ee3859e6476c69fe31da98fe37d57edc}
+
+
+struct aria string buffer field \index{aria.h@{aria.h}!MIN@{MIN}}
+\index{MIN@{MIN}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(X, Y)~(X $<$ Y ? X : Y)}\label{aria_8h_d2f3678bf5eae3684fc497130b946eae}
+
+
+simple, obvious minimum between two integers 
+
+\subsection{Function Documentation}
+\index{aria.h@{aria.h}!ariaCapitalize@{ariaCapitalize}}
+\index{ariaCapitalize@{ariaCapitalize}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Capitalize (\bf{aria\_\-t} {\em str})}\label{aria_8h_a50a72a68f7adc589d98fc9fed651a93}
+
+
+Capitalize the string. 
+
+This function makes the first character after a sequence of white space upper case \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaCharAt@{ariaCharAt}}
+\index{ariaCharAt@{ariaCharAt}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Char\-At (\bf{aria\_\-t} {\em str}, unsigned long int {\em i})}\label{aria_8h_f922035f64887dcbdfa7755643efd520}
+
+
+Get the i-th character. 
+
+This function returns the character at the position i of the stored string\par
+ The first position is 0 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em i}]the index \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the i-th character or EOF if limits are exceeded \end{Desc}
+\index{aria.h@{aria.h}!ariaConcat@{ariaConcat}}
+\index{ariaConcat@{ariaConcat}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Concat (\bf{aria\_\-t} {\em dst}, \bf{aria\_\-t} {\em str1}, \bf{aria\_\-t} {\em str2})}\label{aria_8h_aa5642614cccdbae0d4449ad8be95f23}
+
+
+String concatenation. 
+
+This function concatenates str1 with str2 and puts the result in str\par
+ The buffer size of str will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]aria\_\-t instance which will hold the result of the concatenation \item[{\em str1}]aria\_\-t instance \item[{\em str2}]aria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the length of str or 0 if the buffer could not be increased \end{Desc}
+\index{aria.h@{aria.h}!ariaConcatInPlace@{ariaConcatInPlace}}
+\index{ariaConcatInPlace@{ariaConcatInPlace}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Concat\-In\-Place (\bf{aria\_\-t} {\em str1}, \bf{aria\_\-t} {\em str2})}\label{aria_8h_18411ea3f55513bff6f50bc8c64e98a9}
+
+
+String concatenation (in place). 
+
+This function concatenates str1 with str2 and keeps the result in str1\par
+ The buffer size of str1 will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]aria\_\-t instance \item[{\em str2}]aria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the new length of str1 or 0 if the buffer could not be increased \end{Desc}
+\index{aria.h@{aria.h}!ariaConcatInPlaceChar@{ariaConcatInPlaceChar}}
+\index{ariaConcatInPlaceChar@{ariaConcatInPlaceChar}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Concat\-In\-Place\-Char (\bf{aria\_\-t} {\em str1}, char $\ast$ {\em str2})}\label{aria_8h_1ec9f4c27db54277248227ae45e97553}
+
+
+String concatenation (in place). 
+
+Same as \doxyref{aria\-Concat\-In\-Place()}{p.}{aria_8h_18411ea3f55513bff6f50bc8c64e98a9} but taking a char$\ast$ as second argument \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]aria\_\-t instance \item[{\em str2}]char$\ast$ to be appended to the string stored int str1 \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the new length of str1 or 0 if the buffer could not be increased \end{Desc}
+\index{aria.h@{aria.h}!ariaConcatMany@{ariaConcatMany}}
+\index{ariaConcatMany@{ariaConcatMany}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Concat\-Many (\bf{aria\_\-t} {\em str},  {\em ...})}\label{aria_8h_e96eccd4ca41c58f4ee35b6c7800c73f}
+
+
+Concatenate lots of strings. 
+
+This function concatenates all the strings given as argument and places the result in the first argument, str. The strings which are to be concatenated have to be of type char$\ast$\par
+ The last argument must be NULL \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance which will hold the result \item[{\em ...}]lots of char$\ast$ to be concatenated. The last one must be NULL!! \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the new length of str or 0 if the buffer could not be increased \end{Desc}
+\index{aria.h@{aria.h}!ariaCopy@{ariaCopy}}
+\index{ariaCopy@{ariaCopy}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Copy (\bf{aria\_\-t} {\em str1}, \bf{aria\_\-t} {\em str2})}\label{aria_8h_7aaa4191c8ae410fa0543f5fcda8023a}
+
+
+String copy. 
+
+This function places a copy of str2 in str1. The buffer size of str1 will be increased if necessary. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]aria\_\-t instance \item[{\em str2}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaDecodeURL@{ariaDecodeURL}}
+\index{ariaDecodeURL@{ariaDecodeURL}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Decode\-URL (\bf{aria\_\-t} {\em str1}, \bf{aria\_\-t} {\em str2})}\label{aria_8h_97cd049a312080d8900c39cae497c630}
+
+
+Decode an encoded URL. 
+
+This function decodes the URL in str2 and saves the result in str1 The buffer size will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]aria\_\-t instance with the result \item[{\em str2}]aria\_\-t instance with an encoded URL \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaDecodeURLInPlace@{ariaDecodeURLInPlace}}
+\index{ariaDecodeURLInPlace@{ariaDecodeURLInPlace}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Decode\-URLIn\-Place (\bf{aria\_\-t} {\em str})}\label{aria_8h_e5704b2eea2df07e6bafea038c017e07}
+
+
+Decode an encoded URL (in place). 
+
+This function decodes the URL in str The buffer size will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance with an encoded URL \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaDel@{ariaDel}}
+\index{ariaDel@{ariaDel}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Del (\bf{aria\_\-t} {\em str})}\label{aria_8h_17dd21390c1d14b8e0a10fab4a0fb8af}
+
+
+Destroy a aria\_\-t instance. 
+
+Destroy and free all allocated memory used by str \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance to be freed \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaDump@{ariaDump}}
+\index{ariaDump@{ariaDump}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Dump (\bf{aria\_\-t} {\em str}, FILE $\ast$ {\em fp})}\label{aria_8h_7b6d8ab46894d8bb86b9249c4e7ce240}
+
+
+Write to file. 
+
+This function writes the entire string to fp \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em fp}]output destination \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaDumpN@{ariaDumpN}}
+\index{ariaDumpN@{ariaDumpN}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Dump\-N (\bf{aria\_\-t} {\em str}, FILE $\ast$ {\em fp}, unsigned long int {\em n})}\label{aria_8h_3452f2c42bf20e3c015db7c9d235f6c4}
+
+
+Write n characters to file. 
+
+This function writes the first n characters of the string to fp \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em fp}]output destination \item[{\em n}]number of characters to write \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaEquals@{ariaEquals}}
+\index{ariaEquals@{ariaEquals}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Equals (\bf{aria\_\-t} {\em str1}, \bf{aria\_\-t} {\em str2})}\label{aria_8h_615029d9a62b28e51d314f39183515c6}
+
+
+String comparison. 
+
+This function compares the strings stored at str1 and str2 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]aria\_\-t instance \item[{\em str2}]aria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 if the strings are equal. 0 otherwise \end{Desc}
+\index{aria.h@{aria.h}!ariaEqualsI@{ariaEqualsI}}
+\index{ariaEqualsI@{ariaEqualsI}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Equals\-I (\bf{aria\_\-t} {\em str1}, \bf{aria\_\-t} {\em str2})}\label{aria_8h_c37fd6f0fb7adc75e5172347ab5b8511}
+
+
+String comparison (case insensitive). 
+
+This function compares the strings stored at str1 and str2 but ignores the case \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]aria\_\-t instance \item[{\em str2}]aria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 if the strings are equal (modulo case). 0 otherwise \end{Desc}
+\index{aria.h@{aria.h}!ariaGetChar@{ariaGetChar}}
+\index{ariaGetChar@{ariaGetChar}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ aria\-Get\-Char (\bf{aria\_\-t} {\em str})}\label{aria_8h_f65cff7d1a169c161e3084ffe6632de0}
+
+
+Get a pointer to the string. 
+
+This function just calls the \doxyref{ARIA\_\-STR()}{p.}{aria_8h_ee3859e6476c69fe31da98fe37d57edc} macro, which gives the pointer to the string It returns a const char $\ast$ because you should only alter the string using the aria functions \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a pointer to the string \end{Desc}
+\index{aria.h@{aria.h}!ariaGetSubstring@{ariaGetSubstring}}
+\index{ariaGetSubstring@{ariaGetSubstring}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Get\-Substring (\bf{aria\_\-t} {\em dst}, \bf{aria\_\-t} {\em str}, unsigned long int {\em a}, unsigned long int {\em b})}\label{aria_8h_dc8c9ce171cd5c37779f15eefb9d7fbe}
+
+
+Get a substring. 
+
+This function extracts a substring from str and places it in dst \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]aria\_\-t instance which will hold the result \item[{\em str}]aria\_\-t instance from which the substring will be extracted \item[{\em a}]left bound \item[{\em b}]right bound \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if if fails ou succeeds, respectively \end{Desc}
+\index{aria.h@{aria.h}!ariaImport@{ariaImport}}
+\index{ariaImport@{ariaImport}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Import (\bf{aria\_\-t} {\em str}, FILE $\ast$ {\em fp})}\label{aria_8h_b75cc27417939a9264f76bc89dab33b0}
+
+
+Import from file. 
+
+This function reads the contents of fp (until EOF) and puts it in str \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em fp}]input source \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaImportCharN@{ariaImportCharN}}
+\index{ariaImportCharN@{ariaImportCharN}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Import\-Char\-N (\bf{aria\_\-t} {\em str}, const char $\ast$ {\em buffer}, unsigned long int {\em n})}\label{aria_8h_edd0ceab859cfbce6ad2aa9e9178577f}
+
+
+Read n characters from a byte sequence. 
+
+This function reads n characters (bytes) from buffer and places them in str \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em buffer}]input source \item[{\em n}]number of characters to read \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaImportN@{ariaImportN}}
+\index{ariaImportN@{ariaImportN}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Import\-N (\bf{aria\_\-t} {\em str}, FILE $\ast$ {\em fp}, unsigned long int {\em n})}\label{aria_8h_cbd4d0c62fcb8d2bd739ff68709451f0}
+
+
+Read n characters from file. 
+
+This function reads the first n characters from fp and places them in str \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em fp}]input source \item[{\em n}]number of characters to read \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaIndexOf@{ariaIndexOf}}
+\index{ariaIndexOf@{ariaIndexOf}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Index\-Of (\bf{aria\_\-t} {\em str}, char {\em c})}\label{aria_8h_3d2bc80c0294699e6f62e7f2dc439d89}
+
+
+Get the (first) index of a character. 
+
+This function returns the index of the first occurence (left to right) of the character c in the stored string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em c}]the char \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the index of the first occurence of c or EOF \end{Desc}
+\index{aria.h@{aria.h}!ariaInit@{ariaInit}}
+\index{ariaInit@{ariaInit}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{aria\_\-t} aria\-Init (void)}\label{aria_8h_3d6daca3f6a6c3ba7f9f261b9e5a0e18}
+
+
+Create a aria\_\-t instance. 
+
+Create a aria\_\-t instance with the default maximum string length (64 chars) This value will be reajusted when needed \begin{Desc}
+\item[Returns:]aria\_\-t instance \end{Desc}
+\index{aria.h@{aria.h}!ariaInit2@{ariaInit2}}
+\index{ariaInit2@{ariaInit2}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{aria\_\-t} aria\-Init2 (unsigned long int {\em n})}\label{aria_8h_efd77b8af61cd52cee673d20f3949d3a}
+
+
+Create a aria\_\-t instance defining the buffer size. 
+
+Create a aria\_\-t instance defining an initial maximum string length This is only the initial maximum. This value will be reajusted when needed \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em n}]minimum string size (will be rounded to the next power of 2) \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]aria\_\-t instance \end{Desc}
+\index{aria.h@{aria.h}!ariaInitChar@{ariaInitChar}}
+\index{ariaInitChar@{ariaInitChar}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{aria\_\-t} aria\-Init\-Char (char $\ast$ {\em s})}\label{aria_8h_bde7e359f42d9a410f0cbab8e1b950d9}
+
+
+Create and initialize a aria\_\-t instance. 
+
+Create a aria\_\-t instance and initialize it with a C string (char $\ast$) The buffer size will be powerup(strlen(s)) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em s}]string to initialize the aria\_\-t instance with \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]aria\_\-t instance \end{Desc}
+\index{aria.h@{aria.h}!ariaIsClone@{ariaIsClone}}
+\index{ariaIsClone@{ariaIsClone}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Is\-Clone (\bf{aria\_\-t} {\em str1}, \bf{aria\_\-t} {\em str2})}\label{aria_8h_5cb701417800037804749162f8b2c48c}
+
+
+aria instance comparison 
+
+This function compares two aria instances\par
+ It returns true if both objects are exactly the same: equal strings and equal buffer size \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str1}]aria\_\-t instance \item[{\em str2}]aria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 if the objects are equal. 0 otherwise \end{Desc}
+\index{aria.h@{aria.h}!ariaLastIndexOf@{ariaLastIndexOf}}
+\index{ariaLastIndexOf@{ariaLastIndexOf}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Last\-Index\-Of (\bf{aria\_\-t} {\em str}, char {\em c})}\label{aria_8h_5eef17632ef57347de2291841db722f9}
+
+
+Get the (last) index of a character. 
+
+This function returns the index of the last occurence (first, if read right to left) of the character c in the stored string \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em c}]the char \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the index of the last occurence of c or EOF \end{Desc}
+\index{aria.h@{aria.h}!ariaLeft@{ariaLeft}}
+\index{ariaLeft@{ariaLeft}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Left (\bf{aria\_\-t} {\em dst}, \bf{aria\_\-t} {\em str}, unsigned long int {\em i})}\label{aria_8h_9c3bd7ab1e642ca25278523dd3995ad3}
+
+
+Get a substring starting at the beginning. 
+
+This function extracts a substring from str and places it in dst \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]aria\_\-t instance which will hold the result \item[{\em str}]aria\_\-t instance from which the substring will be extracted \item[{\em i}]the size of the substring \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if if fails ou succeeds, respectively \end{Desc}
+\index{aria.h@{aria.h}!ariaLength@{ariaLength}}
+\index{ariaLength@{ariaLength}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Length (\bf{aria\_\-t} {\em str})}\label{aria_8h_df38052fdd65493eaa4fc0feadd3ee70}
+
+
+Get string length. 
+
+This function just calls the \doxyref{ARIA\_\-LEN()}{p.}{aria_8h_b0d96e62f8970620fbe88f9370780d0c} macro. It is the same as strlen(arialib\-Get\-Char(str)) \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the length of the string (number of characters, without $\backslash$0) \end{Desc}
+\index{aria.h@{aria.h}!ariaLower@{ariaLower}}
+\index{ariaLower@{ariaLower}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Lower (\bf{aria\_\-t} {\em str})}\label{aria_8h_30efa8846bd143f504dd69958a46bf3a}
+
+
+Make the string lowercase. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaMakeSingleSpace@{ariaMakeSingleSpace}}
+\index{ariaMakeSingleSpace@{ariaMakeSingleSpace}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Make\-Single\-Space (\bf{aria\_\-t} {\em str})}\label{aria_8h_087bfa2292fbc29fefde072e4e7e2530}
+
+
+Remove extra space. 
+
+This function replaces sequences of white space with a single space. For example, \char`\"{}a   b     c d\char`\"{} is transformed into \char`\"{}a b c d\char`\"{} \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaReplace@{ariaReplace}}
+\index{ariaReplace@{ariaReplace}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Replace (\bf{aria\_\-t} {\em str}, const char $\ast$ {\em s1}, const char $\ast$ {\em s2})}\label{aria_8h_d431c8a8210ea57581910b3d3c161bd8}
+
+
+Replace a substring with another. 
+
+This function searches for the first occurence of s1 in the string stored at str and replaces it with s2\par
+ The buffer size will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em s1}]the substring to find \item[{\em s2}]the substring which will replace s1 \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 or 0 if it succeeds or fails, respectively \end{Desc}
+\index{aria.h@{aria.h}!ariaReplaceAll@{ariaReplaceAll}}
+\index{ariaReplaceAll@{ariaReplaceAll}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Replace\-All (\bf{aria\_\-t} {\em str}, const char $\ast$ {\em s1}, const char $\ast$ {\em s2})}\label{aria_8h_1965daa6fcebe938bf9b7a650832941f}
+
+
+Replace all occurences of a substring with another. 
+
+This function searches for all the occurences of s1 in the string stored at str and replaces them with s2\par
+ The buffer size will be increased if necessary \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em s1}]the substring to find \item[{\em s2}]the substring which will replace s1 \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the number of replaced substrings \end{Desc}
+\index{aria.h@{aria.h}!ariaResize@{ariaResize}}
+\index{ariaResize@{ariaResize}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Resize (\bf{aria\_\-t} {\em str})}\label{aria_8h_022e10b8b86f3d20ec07eecceec5c048}
+
+
+Re-calculate minimum buffer size. 
+
+This function re-calculates the minimum buffer size that is needed to keep the current string. If it is less than the currently allocated, the extra memory will be freed\par
+ This is the only way to make the buffer smaller. All the other functions will only increase its size when needed \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance to be resized \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaReverse@{ariaReverse}}
+\index{ariaReverse@{ariaReverse}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Reverse (\bf{aria\_\-t} {\em str})}\label{aria_8h_4f6cdf663a0088c94db3a5daada78734}
+
+
+String reverse. 
+
+This function reverses the string stored in str. For example, \char`\"{}abc\char`\"{} is changed to \char`\"{}cba\char`\"{}. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaRight@{ariaRight}}
+\index{ariaRight@{ariaRight}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Right (\bf{aria\_\-t} {\em dst}, \bf{aria\_\-t} {\em str}, unsigned long int {\em i})}\label{aria_8h_04a0ed1880c3fca0a87e353632efe368}
+
+
+Get a substring starting at the end. 
+
+This function extracts a substring from str and places it in dst \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]aria\_\-t instance which will hold the result \item[{\em str}]aria\_\-t instance from which the substring will be extracted \item[{\em i}]the size of the substring \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if if fails ou succeeds, respectively \end{Desc}
+\index{aria.h@{aria.h}!ariaSearch@{ariaSearch}}
+\index{ariaSearch@{ariaSearch}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Search (\bf{aria\_\-t} {\em str}, char $\ast$ {\em s})}\label{aria_8h_993324a34fb8a7ef71ba8d2e067f8796}
+
+
+Search for a substring. 
+
+This function searches for the first occurence of s in the string stored at str\par
+ Currently uses the KMP algorithm \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \item[{\em s}]the substring to find \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the index of str where the match occured or \doxyref{ARIA\_\-LEN(str)}{p.}{aria_8h_b0d96e62f8970620fbe88f9370780d0c} if s was not found \end{Desc}
+\index{aria.h@{aria.h}!ariaSize@{ariaSize}}
+\index{ariaSize@{ariaSize}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int aria\-Size (\bf{aria\_\-t} {\em str})}\label{aria_8h_91c8e5f968ec6401b64c7b5a99d5b19a}
+
+
+Get buffer size. 
+
+This function just calls the \doxyref{ARIA\_\-SIZE()}{p.}{aria_8h_00a5eb439d8a885a7919d3202158d8d6} macro, which gives the ammount of currently allocated memory. In other words, it returns the length of the biggest string that is possible to store in str \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the size of the currently allocated string buffer \end{Desc}
+\index{aria.h@{aria.h}!ariaStrip@{ariaStrip}}
+\index{ariaStrip@{ariaStrip}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Strip (\bf{aria\_\-t} {\em str})}\label{aria_8h_344eac447d92e4320cb4e7ffb09fad5d}
+
+
+Remove white space from both the beginning and the end of the string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaStripL@{ariaStripL}}
+\index{ariaStripL@{ariaStripL}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Strip\-L (\bf{aria\_\-t} {\em str})}\label{aria_8h_4a255dc8c2837c52138fdea0ce21b4a0}
+
+
+Remove white space from the beginning of the string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaStripR@{ariaStripR}}
+\index{ariaStripR@{ariaStripR}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Strip\-R (\bf{aria\_\-t} {\em str})}\label{aria_8h_ceb9aaee00afca844b4b11d4d20112c7}
+
+
+Remove white space from the end of the string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaSwapCase@{ariaSwapCase}}
+\index{ariaSwapCase@{ariaSwapCase}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Swap\-Case (\bf{aria\_\-t} {\em str})}\label{aria_8h_7bbceacd31678bbf3436db67ee387455}
+
+
+Switch upper with lower case and vice-versa. 
+
+This function replaces every lower case character with the correspondent upper case and vice-versa \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!ariaUpdate@{ariaUpdate}}
+\index{ariaUpdate@{ariaUpdate}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Update (\bf{aria\_\-t} {\em str}, const char $\ast$ {\em s})}\label{aria_8h_0831c160b289d8f7031009b22b4a79b5}
+
+
+Store a new string in a aria instance. 
+
+This function stores the string s in the aria instance \par
+ The buffer will not be resized. If needed, it will be increased, but to make smaller (thus freeing some memory) you must call \doxyref{aria\-Resize()}{p.}{aria_8h_022e10b8b86f3d20ec07eecceec5c048} \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance to store a new string \item[{\em s}]char array to be stored in str \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if it fails or succeeds, respectively \end{Desc}
+\index{aria.h@{aria.h}!ariaUpdateFormat@{ariaUpdateFormat}}
+\index{ariaUpdateFormat@{ariaUpdateFormat}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aria\-Update\-Format (\bf{aria\_\-t} {\em str}, char $\ast$ {\em fmt},  {\em ...})}\label{aria_8h_59dec6920ae28583a027d5ad58124e15}
+
+
+Store a new string in a aria instance according to a format. 
+
+This function stores a new string in the aria instance according to a format. The format specifiers are the following:\par
+ \%s - a C null terminated string\par
+ \%d - a C int\par
+ \%A - a aria\_\-t instance\par
+\par
+ An example: suppose you want to create the string \char`\"{}select $\ast$ from t where u='x' and p='y'\char`\"{}. Both values x and y are strings. You have one as a aria\_\-t instance, a1, and the other as a C null terminated string, s1. The following code will do it:\par
+\par
+ aria\-Update(str1, \char`\"{}select $\ast$ from t where u='\%A' and p='\%s'\char`\"{}, a1, s1); \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance to store a new string \item[{\em fmt}]the format string \item[{\em ...}]the remainder arguments, in the same order as they appear in fmt \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 or 1 if it fails or succeeds, respectively \end{Desc}
+\index{aria.h@{aria.h}!ariaUpper@{ariaUpper}}
+\index{ariaUpper@{ariaUpper}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void aria\-Upper (\bf{aria\_\-t} {\em str})}\label{aria_8h_4540466ebf80ce8e0718731bc1ae11ec}
+
+
+Make the string uppercase. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]aria\_\-t instance \end{description}
+\end{Desc}
+\index{aria.h@{aria.h}!powerup@{powerup}}
+\index{powerup@{powerup}!aria.h@{aria.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long int powerup (unsigned long int {\em n})}\label{aria_8h_9bfec8d0531ca92a93ec879468738558}
+
+
+Get the next power of 2. 
+
+This function computes the smallest k, such that k is a power of 2 and k $>$ n \par
+ If n is already a power of two, it returns 2$\ast$n \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em n}]integer (not a power of two) \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]smallest power of 2 greater than n \end{Desc}

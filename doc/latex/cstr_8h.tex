@@ -1,0 +1,807 @@
+\section{cstr.h File Reference}
+\label{cstr_8h}\index{cstr.h@{cstr.h}}
+
+
+\doxyref{cstr}{p.}{structcstr} header file  
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf cstr}
+\begin{DoxyCompactList}\small\item\em The cstr\_\-t data type. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf MIN}(X, Y)~(X $<$ Y ? X : Y)
+\item 
+\#define {\bf CSTR\_\-NICE\_\-FREE}(X)~free(X); X=NULL
+\item 
+\#define {\bf CSTR\_\-INIT\_\-SIZE}~63
+\item 
+\#define {\bf CSTR\_\-SIZE}(X)~((X)-\/$>$size)
+\item 
+\#define {\bf CSTR\_\-LEN}(X)~((X)-\/$>$len)
+\item 
+\#define {\bf CSTR\_\-STR}(X)~((X)-\/$>$str)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf cstr} $\ast$ {\bf cstr\_\-t}
+\begin{DoxyCompactList}\small\item\em The cstr\_\-t data type. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf CASE} \{ {\bfseries UPPER}, 
+{\bfseries LOWER}, 
+{\bfseries SWAP}
+ \}
+\begin{DoxyCompactList}\small\item\em Case change choice enum. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long int {\bf powerup} (unsigned long int n)
+\begin{DoxyCompactList}\small\item\em Get the next power of 2. \item\end{DoxyCompactList}\item 
+{\bf cstr\_\-t} {\bf cstrInit} (void)
+\begin{DoxyCompactList}\small\item\em Create a cstr\_\-t instance. \item\end{DoxyCompactList}\item 
+{\bf cstr\_\-t} {\bf cstrInit2} (unsigned long int n)
+\begin{DoxyCompactList}\small\item\em Create a cstr\_\-t instance defining the buffer size. \item\end{DoxyCompactList}\item 
+{\bf cstr\_\-t} {\bf cstrInitChar} (char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Create and initialize a cstr\_\-t instance. \item\end{DoxyCompactList}\item 
+void {\bf cstrDel} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Destroy a cstr\_\-t instance. \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrLength} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Get string length. \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrSize} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Get buffer size. \item\end{DoxyCompactList}\item 
+const char $\ast$ {\bf cstrGetChar} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Get a pointer to the string. \item\end{DoxyCompactList}\item 
+void {\bf cstrResize} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Re-\/calculate minimum buffer size. \item\end{DoxyCompactList}\item 
+int {\bf cstrUpdate} ({\bf cstr\_\-t} str, const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Store a new string in a \doxyref{cstr}{p.}{structcstr} instance. \item\end{DoxyCompactList}\item 
+int {\bf cstrUpdateFormat} ({\bf cstr\_\-t} str, char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Store a new string in a \doxyref{cstr}{p.}{structcstr} instance according to a format. \item\end{DoxyCompactList}\item 
+int {\bf cstrCharAt} ({\bf cstr\_\-t} str, unsigned long int i)
+\begin{DoxyCompactList}\small\item\em Get the i-\/th character. \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrIndexOf} ({\bf cstr\_\-t} str, char c)
+\begin{DoxyCompactList}\small\item\em Get the (first) index of a character. \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrLastIndexOf} ({\bf cstr\_\-t} str, char c)
+\begin{DoxyCompactList}\small\item\em Get the (last) index of a character. \item\end{DoxyCompactList}\item 
+int {\bf cstrEquals} ({\bf cstr\_\-t} str1, {\bf cstr\_\-t} str2)
+\begin{DoxyCompactList}\small\item\em String comparison. \item\end{DoxyCompactList}\item 
+int {\bf cstrEqualsI} ({\bf cstr\_\-t} str1, {\bf cstr\_\-t} str2)
+\begin{DoxyCompactList}\small\item\em String comparison (case insensitive). \item\end{DoxyCompactList}\item 
+int {\bf cstrIsClone} ({\bf cstr\_\-t} str1, {\bf cstr\_\-t} str2)
+\begin{DoxyCompactList}\small\item\em \doxyref{cstr}{p.}{structcstr} instance comparison \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrConcat} ({\bf cstr\_\-t} dst, {\bf cstr\_\-t} str1, {\bf cstr\_\-t} str2)
+\begin{DoxyCompactList}\small\item\em String concatenation. \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrConcatInPlace} ({\bf cstr\_\-t} str1, {\bf cstr\_\-t} str2)
+\begin{DoxyCompactList}\small\item\em String concatenation (in place). \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrConcatInPlaceChar} ({\bf cstr\_\-t} str1, char $\ast$str2)
+\begin{DoxyCompactList}\small\item\em String concatenation (in place). \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrConcatMany} ({\bf cstr\_\-t} str,...)
+\begin{DoxyCompactList}\small\item\em Concatenate lots of strings. \item\end{DoxyCompactList}\item 
+void {\bf cstrCopy} ({\bf cstr\_\-t} str1, {\bf cstr\_\-t} str2)
+\begin{DoxyCompactList}\small\item\em String copy. \item\end{DoxyCompactList}\item 
+void {\bf cstrReverse} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em String reverse. \item\end{DoxyCompactList}\item 
+void {\bf cstrMakeSingleSpace} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Remove extra space. \item\end{DoxyCompactList}\item 
+void {\bf cstrLower} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Make the string lowercase. \item\end{DoxyCompactList}\item 
+void {\bf cstrUpper} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Make the string uppercase. \item\end{DoxyCompactList}\item 
+void {\bf cstrCapitalize} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Capitalize the string. \item\end{DoxyCompactList}\item 
+void {\bf cstrSwapCase} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Switch upper with lower case and vice-\/versa. \item\end{DoxyCompactList}\item 
+void {\bf cstrStripL} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Remove white space from the beginning of the string. \item\end{DoxyCompactList}\item 
+void {\bf cstrStripR} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Remove white space from the end of the string. \item\end{DoxyCompactList}\item 
+void {\bf cstrStrip} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Remove white space from both the beginning and the end of the string. \item\end{DoxyCompactList}\item 
+void {\bf cstrImport} ({\bf cstr\_\-t} str, FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Import from file. \item\end{DoxyCompactList}\item 
+size\_\-t {\bf cstrDump} ({\bf cstr\_\-t} str, FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Write to file. \item\end{DoxyCompactList}\item 
+size\_\-t {\bf cstrDumpN} ({\bf cstr\_\-t} str, FILE $\ast$fp, unsigned long int n)
+\begin{DoxyCompactList}\small\item\em Write n characters to file. \item\end{DoxyCompactList}\item 
+void {\bf cstrImportN} ({\bf cstr\_\-t} str, FILE $\ast$fp, unsigned long int n)
+\begin{DoxyCompactList}\small\item\em Read n characters from file. \item\end{DoxyCompactList}\item 
+void {\bf cstrImportCharN} ({\bf cstr\_\-t} str, const char $\ast$buffer, unsigned long int n)
+\begin{DoxyCompactList}\small\item\em Read n characters from a byte sequence. \item\end{DoxyCompactList}\item 
+int {\bf cstrGetSubstring} ({\bf cstr\_\-t} dst, {\bf cstr\_\-t} str, unsigned long int a, unsigned long int b)
+\begin{DoxyCompactList}\small\item\em Get a substring. \item\end{DoxyCompactList}\item 
+int {\bf cstrLeft} ({\bf cstr\_\-t} dst, {\bf cstr\_\-t} str, unsigned long int i)
+\begin{DoxyCompactList}\small\item\em Get a substring starting at the beginning. \item\end{DoxyCompactList}\item 
+int {\bf cstrRight} ({\bf cstr\_\-t} dst, {\bf cstr\_\-t} str, unsigned long int i)
+\begin{DoxyCompactList}\small\item\em Get a substring starting at the end. \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrSearch} ({\bf cstr\_\-t} str, char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Search for a substring. \item\end{DoxyCompactList}\item 
+int {\bf cstrReplace} ({\bf cstr\_\-t} str, const char $\ast$s1, const char $\ast$s2)
+\begin{DoxyCompactList}\small\item\em Replace a substring with another. \item\end{DoxyCompactList}\item 
+unsigned long int {\bf cstrReplaceAll} ({\bf cstr\_\-t} str, const char $\ast$s1, const char $\ast$s2)
+\begin{DoxyCompactList}\small\item\em Replace all occurences of a substring with another. \item\end{DoxyCompactList}\item 
+void {\bf cstrDecodeURL} ({\bf cstr\_\-t} str1, {\bf cstr\_\-t} str2)
+\begin{DoxyCompactList}\small\item\em Decode an encoded URL. \item\end{DoxyCompactList}\item 
+void {\bf cstrDecodeURLInPlace} ({\bf cstr\_\-t} str)
+\begin{DoxyCompactList}\small\item\em Decode an encoded URL (in place). \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{cstr}{p.}{structcstr} header file 
+
+\subsection{Define Documentation}
+\index{cstr.h@{cstr.h}!CSTR\_\-INIT\_\-SIZE@{CSTR\_\-INIT\_\-SIZE}}
+\index{CSTR\_\-INIT\_\-SIZE@{CSTR\_\-INIT\_\-SIZE}!cstr.h@{cstr.h}}
+\subsubsection[{CSTR\_\-INIT\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define CSTR\_\-INIT\_\-SIZE~63}\label{cstr_8h_a7a50088926a64acb6c9d9b67602033cc}
+default string size 
+
+Referenced by cstrImport(), cstrImportN(), and cstrInit().\index{cstr.h@{cstr.h}!CSTR\_\-LEN@{CSTR\_\-LEN}}
+\index{CSTR\_\-LEN@{CSTR\_\-LEN}!cstr.h@{cstr.h}}
+\subsubsection[{CSTR\_\-LEN}]{\setlength{\rightskip}{0pt plus 5cm}\#define CSTR\_\-LEN(X)~((X)-\/$>$len)}\label{cstr_8h_a868b35ccaf1fa969526ca21366f55945}
+struct \doxyref{cstr}{p.}{structcstr} string length field 
+
+Referenced by cstrCharAt(), cstrConcat(), cstrConcatInPlaceChar(), cstrConcatMany(), cstrDump(), cstrEqualsI(), cstrGetSubstring(), cstrImportCharN(), cstrIndexOf(), cstrInit2(), cstrIsClone(), cstrLastIndexOf(), cstrLength(), cstrMakeSingleSpace(), cstrReplaceAll(), cstrResize(), cstrReverse(), cstrRight(), cstrSearch(), cstrStripL(), cstrStripR(), cstrUpdate(), and cstrUpdateFormat().\index{cstr.h@{cstr.h}!CSTR\_\-NICE\_\-FREE@{CSTR\_\-NICE\_\-FREE}}
+\index{CSTR\_\-NICE\_\-FREE@{CSTR\_\-NICE\_\-FREE}!cstr.h@{cstr.h}}
+\subsubsection[{CSTR\_\-NICE\_\-FREE}]{\setlength{\rightskip}{0pt plus 5cm}\#define CSTR\_\-NICE\_\-FREE(X)~free(X); X=NULL}\label{cstr_8h_a2dd3c883dda418000a854e1b71098efa}
+safe free(). makes the pointer NULL 
+
+Referenced by cstrDel(), cstrReplaceAll(), and cstrSearch().\index{cstr.h@{cstr.h}!CSTR\_\-SIZE@{CSTR\_\-SIZE}}
+\index{CSTR\_\-SIZE@{CSTR\_\-SIZE}!cstr.h@{cstr.h}}
+\subsubsection[{CSTR\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define CSTR\_\-SIZE(X)~((X)-\/$>$size)}\label{cstr_8h_a3d732d81dd5dc2eadfb00d1916245d2e}
+struct \doxyref{cstr}{p.}{structcstr} buffer size field 
+
+Referenced by cstrConcat(), cstrConcatInPlaceChar(), cstrInit2(), cstrIsClone(), cstrResize(), cstrSize(), and cstrUpdate().\index{cstr.h@{cstr.h}!CSTR\_\-STR@{CSTR\_\-STR}}
+\index{CSTR\_\-STR@{CSTR\_\-STR}!cstr.h@{cstr.h}}
+\subsubsection[{CSTR\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define CSTR\_\-STR(X)~((X)-\/$>$str)}\label{cstr_8h_ad19a062958369315343d41068e9a36ab}
+struct \doxyref{cstr}{p.}{structcstr} string buffer field 
+
+Referenced by cstrCapitalize(), cstrCharAt(), cstrConcat(), cstrConcatInPlace(), cstrConcatInPlaceChar(), cstrConcatMany(), cstrCopy(), cstrDecodeURLInPlace(), cstrDel(), cstrDump(), cstrDumpN(), cstrEquals(), cstrEqualsI(), cstrGetChar(), cstrGetSubstring(), cstrImportCharN(), cstrIndexOf(), cstrInit2(), cstrLastIndexOf(), cstrMakeSingleSpace(), cstrReplaceAll(), cstrResize(), cstrReverse(), cstrSearch(), cstrStripL(), cstrStripR(), cstrUpdate(), and cstrUpdateFormat().\index{cstr.h@{cstr.h}!MIN@{MIN}}
+\index{MIN@{MIN}!cstr.h@{cstr.h}}
+\subsubsection[{MIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(X, \/  Y)~(X $<$ Y ? X : Y)}\label{cstr_8h_ad2f3678bf5eae3684fc497130b946eae}
+simple, obvious minimum between two integers 
+
+\subsection{Typedef Documentation}
+\index{cstr.h@{cstr.h}!cstr\_\-t@{cstr\_\-t}}
+\index{cstr\_\-t@{cstr\_\-t}!cstr.h@{cstr.h}}
+\subsubsection[{cstr\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf cstr} $\ast$ {\bf cstr\_\-t}}\label{cstr_8h_aa39ac68372aa1fc8099be3224b2b5e2a}
+
+
+The cstr\_\-t data type. 
+
+\subsection{Enumeration Type Documentation}
+\index{cstr.h@{cstr.h}!CASE@{CASE}}
+\index{CASE@{CASE}!cstr.h@{cstr.h}}
+\subsubsection[{CASE}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf CASE}}\label{cstr_8h_a8e89e62dba641e1a2ec45649102c0df3}
+
+
+Case change choice enum. 
+
+\subsection{Function Documentation}
+\index{cstr.h@{cstr.h}!cstrCapitalize@{cstrCapitalize}}
+\index{cstrCapitalize@{cstrCapitalize}!cstr.h@{cstr.h}}
+\subsubsection[{cstrCapitalize}]{\setlength{\rightskip}{0pt plus 5cm}void cstrCapitalize ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_ac39ee3da49453e2ff18f388c7f0790cc}
+
+
+Capitalize the string. This function makes the first character after a sequence of white space upper case 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References CSTR\_\-STR, and cstrCapitalize().
+
+Referenced by cstrCapitalize().\index{cstr.h@{cstr.h}!cstrCharAt@{cstrCharAt}}
+\index{cstrCharAt@{cstrCharAt}!cstr.h@{cstr.h}}
+\subsubsection[{cstrCharAt}]{\setlength{\rightskip}{0pt plus 5cm}int cstrCharAt ({\bf cstr\_\-t} {\em str}, \/  unsigned long int {\em i})}\label{cstr_8h_af0768186f17c6b3cd843d234978f155a}
+
+
+Get the i-\/th character. This function returns the character at the position i of the stored string\par
+ The first position is 0 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em i}]the index \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the i-\/th character or EOF if limits are exceeded 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrCharAt().
+
+Referenced by cstrCharAt().\index{cstr.h@{cstr.h}!cstrConcat@{cstrConcat}}
+\index{cstrConcat@{cstrConcat}!cstr.h@{cstr.h}}
+\subsubsection[{cstrConcat}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrConcat ({\bf cstr\_\-t} {\em dst}, \/  {\bf cstr\_\-t} {\em str1}, \/  {\bf cstr\_\-t} {\em str2})}\label{cstr_8h_a5f9d225b11df2a1129b146b38560a2a3}
+
+
+String concatenation. This function concatenates str1 with str2 and puts the result in str\par
+ The buffer size of str will be increased if necessary 
+\begin{DoxyParams}{Parameters}
+\item[{\em dst}]cstr\_\-t instance which will hold the result of the concatenation \item[{\em str1}]cstr\_\-t instance \item[{\em str2}]cstr\_\-t instance \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the length of str or 0 if the buffer could not be increased 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-SIZE, CSTR\_\-STR, and cstrConcat().
+
+Referenced by cstrConcat().\index{cstr.h@{cstr.h}!cstrConcatInPlace@{cstrConcatInPlace}}
+\index{cstrConcatInPlace@{cstrConcatInPlace}!cstr.h@{cstr.h}}
+\subsubsection[{cstrConcatInPlace}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrConcatInPlace ({\bf cstr\_\-t} {\em str1}, \/  {\bf cstr\_\-t} {\em str2})}\label{cstr_8h_a8693daaa2c0cf5b83dbc9b32af7daee5}
+
+
+String concatenation (in place). This function concatenates str1 with str2 and keeps the result in str1\par
+ The buffer size of str1 will be increased if necessary 
+\begin{DoxyParams}{Parameters}
+\item[{\em str1}]cstr\_\-t instance \item[{\em str2}]cstr\_\-t instance \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new length of str1 or 0 if the buffer could not be increased 
+\end{DoxyReturn}
+
+
+References CSTR\_\-STR, cstrConcatInPlace(), and cstrConcatInPlaceChar().
+
+Referenced by cstrConcatInPlace(), and cstrUpdateFormat().\index{cstr.h@{cstr.h}!cstrConcatInPlaceChar@{cstrConcatInPlaceChar}}
+\index{cstrConcatInPlaceChar@{cstrConcatInPlaceChar}!cstr.h@{cstr.h}}
+\subsubsection[{cstrConcatInPlaceChar}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrConcatInPlaceChar ({\bf cstr\_\-t} {\em str1}, \/  char $\ast$ {\em str2})}\label{cstr_8h_a8e72c4de915ed7c09f2823bb273b4c7c}
+
+
+String concatenation (in place). Same as \doxyref{cstrConcatInPlace()}{p.}{cstr_8h_a8693daaa2c0cf5b83dbc9b32af7daee5} but taking a char$\ast$ as second argument 
+\begin{DoxyParams}{Parameters}
+\item[{\em str1}]cstr\_\-t instance \item[{\em str2}]char$\ast$ to be appended to the string stored int str1 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new length of str1 or 0 if the buffer could not be increased 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-SIZE, CSTR\_\-STR, and cstrConcatInPlaceChar().
+
+Referenced by cstrConcatInPlace(), cstrConcatInPlaceChar(), cstrConcatMany(), cstrImport(), cstrImportN(), and cstrUpdateFormat().\index{cstr.h@{cstr.h}!cstrConcatMany@{cstrConcatMany}}
+\index{cstrConcatMany@{cstrConcatMany}!cstr.h@{cstr.h}}
+\subsubsection[{cstrConcatMany}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrConcatMany ({\bf cstr\_\-t} {\em str}, \/   {\em ...})}\label{cstr_8h_aed39cc2faeac5696673ca1f2b560c8a5}
+
+
+Concatenate lots of strings. This function concatenates all the strings given as argument and places the result in the first argument, str. The strings which are to be concatenated have to be of type char$\ast$\par
+ The last argument must be NULL 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance which will hold the result \item[{\em ...}]lots of char$\ast$ to be concatenated. The last one must be NULL!! \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new length of str or 0 if the buffer could not be increased 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, cstrConcatInPlaceChar(), and cstrConcatMany().
+
+Referenced by cstrConcatMany().\index{cstr.h@{cstr.h}!cstrCopy@{cstrCopy}}
+\index{cstrCopy@{cstrCopy}!cstr.h@{cstr.h}}
+\subsubsection[{cstrCopy}]{\setlength{\rightskip}{0pt plus 5cm}void cstrCopy ({\bf cstr\_\-t} {\em str1}, \/  {\bf cstr\_\-t} {\em str2})}\label{cstr_8h_a4abce1d66f6cb2cb11a735ea01009f12}
+
+
+String copy. This function places a copy of str2 in str1. The buffer size of str1 will be increased if necessary. 
+\begin{DoxyParams}{Parameters}
+\item[{\em str1}]cstr\_\-t instance \item[{\em str2}]cstr\_\-t instance \end{DoxyParams}
+
+
+References CSTR\_\-STR, cstrCopy(), and cstrUpdate().
+
+Referenced by cstrCopy(), and cstrDecodeURL().\index{cstr.h@{cstr.h}!cstrDecodeURL@{cstrDecodeURL}}
+\index{cstrDecodeURL@{cstrDecodeURL}!cstr.h@{cstr.h}}
+\subsubsection[{cstrDecodeURL}]{\setlength{\rightskip}{0pt plus 5cm}void cstrDecodeURL ({\bf cstr\_\-t} {\em str1}, \/  {\bf cstr\_\-t} {\em str2})}\label{cstr_8h_a34e35d8760c69c710612d5ef97f7f588}
+
+
+Decode an encoded URL. This function decodes the URL in str2 and saves the result in str1 The buffer size will be increased if necessary 
+\begin{DoxyParams}{Parameters}
+\item[{\em str1}]cstr\_\-t instance with the result \item[{\em str2}]cstr\_\-t instance with an encoded URL \end{DoxyParams}
+
+
+References cstrCopy(), cstrDecodeURL(), and cstrDecodeURLInPlace().
+
+Referenced by cstrDecodeURL().\index{cstr.h@{cstr.h}!cstrDecodeURLInPlace@{cstrDecodeURLInPlace}}
+\index{cstrDecodeURLInPlace@{cstrDecodeURLInPlace}!cstr.h@{cstr.h}}
+\subsubsection[{cstrDecodeURLInPlace}]{\setlength{\rightskip}{0pt plus 5cm}void cstrDecodeURLInPlace ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_afcb93d1e778e88976df00352236e0ab3}
+
+
+Decode an encoded URL (in place). This function decodes the URL in str The buffer size will be increased if necessary 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance with an encoded URL \end{DoxyParams}
+
+
+References CSTR\_\-STR, and cstrDecodeURLInPlace().
+
+Referenced by cstrDecodeURL(), and cstrDecodeURLInPlace().\index{cstr.h@{cstr.h}!cstrDel@{cstrDel}}
+\index{cstrDel@{cstrDel}!cstr.h@{cstr.h}}
+\subsubsection[{cstrDel}]{\setlength{\rightskip}{0pt plus 5cm}void cstrDel ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_ae32ac07e2c9bf910f89b9de14ced748a}
+
+
+Destroy a cstr\_\-t instance. Destroy and free all allocated memory used by str 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance to be freed \end{DoxyParams}
+
+
+References CSTR\_\-NICE\_\-FREE, CSTR\_\-STR, and cstrDel().
+
+Referenced by cstrDel().\index{cstr.h@{cstr.h}!cstrDump@{cstrDump}}
+\index{cstrDump@{cstrDump}!cstr.h@{cstr.h}}
+\subsubsection[{cstrDump}]{\setlength{\rightskip}{0pt plus 5cm}size\_\-t cstrDump ({\bf cstr\_\-t} {\em str}, \/  FILE $\ast$ {\em fp})}\label{cstr_8h_a0c7f4d63697e8a0a865c62b9c6eacfad}
+
+
+Write to file. This function writes the entire string to fp 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em fp}]output destination \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of items successfully read or written not the number of characters 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrDump().
+
+Referenced by cstrDump().\index{cstr.h@{cstr.h}!cstrDumpN@{cstrDumpN}}
+\index{cstrDumpN@{cstrDumpN}!cstr.h@{cstr.h}}
+\subsubsection[{cstrDumpN}]{\setlength{\rightskip}{0pt plus 5cm}size\_\-t cstrDumpN ({\bf cstr\_\-t} {\em str}, \/  FILE $\ast$ {\em fp}, \/  unsigned long int {\em n})}\label{cstr_8h_a684176d9762f36d2d3ad75a82a65fc2e}
+
+
+Write n characters to file. This function writes the first n characters of the string to fp 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em fp}]output destination \item[{\em n}]number of characters to write \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of items successfully read or written not the number of characters 
+\end{DoxyReturn}
+
+
+References CSTR\_\-STR, and cstrDumpN().
+
+Referenced by cstrDumpN().\index{cstr.h@{cstr.h}!cstrEquals@{cstrEquals}}
+\index{cstrEquals@{cstrEquals}!cstr.h@{cstr.h}}
+\subsubsection[{cstrEquals}]{\setlength{\rightskip}{0pt plus 5cm}int cstrEquals ({\bf cstr\_\-t} {\em str1}, \/  {\bf cstr\_\-t} {\em str2})}\label{cstr_8h_a6cbd72fa4982cab9ee2a4515273e2cc7}
+
+
+String comparison. This function compares the strings stored at str1 and str2 
+\begin{DoxyParams}{Parameters}
+\item[{\em str1}]cstr\_\-t instance \item[{\em str2}]cstr\_\-t instance \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the strings are equal. 0 otherwise 
+\end{DoxyReturn}
+
+
+References CSTR\_\-STR, and cstrEquals().
+
+Referenced by cstrEquals(), and cstrIsClone().\index{cstr.h@{cstr.h}!cstrEqualsI@{cstrEqualsI}}
+\index{cstrEqualsI@{cstrEqualsI}!cstr.h@{cstr.h}}
+\subsubsection[{cstrEqualsI}]{\setlength{\rightskip}{0pt plus 5cm}int cstrEqualsI ({\bf cstr\_\-t} {\em str1}, \/  {\bf cstr\_\-t} {\em str2})}\label{cstr_8h_a7602364da91b4539309cac1c0d2a6c93}
+
+
+String comparison (case insensitive). This function compares the strings stored at str1 and str2 but ignores the case 
+\begin{DoxyParams}{Parameters}
+\item[{\em str1}]cstr\_\-t instance \item[{\em str2}]cstr\_\-t instance \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the strings are equal (modulo case). 0 otherwise 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrEqualsI().
+
+Referenced by cstrEqualsI().\index{cstr.h@{cstr.h}!cstrGetChar@{cstrGetChar}}
+\index{cstrGetChar@{cstrGetChar}!cstr.h@{cstr.h}}
+\subsubsection[{cstrGetChar}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ cstrGetChar ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_a37d014d814a937417b3da2a60ee202b6}
+
+
+Get a pointer to the string. This function just calls the \doxyref{CSTR\_\-STR()}{p.}{cstr_8h_ad19a062958369315343d41068e9a36ab} macro, which gives the pointer to the string It returns a const char $\ast$ because you should only alter the string using the \doxyref{cstr}{p.}{structcstr} functions 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the string 
+\end{DoxyReturn}
+
+
+References CSTR\_\-STR, and cstrGetChar().
+
+Referenced by cstrGetChar().\index{cstr.h@{cstr.h}!cstrGetSubstring@{cstrGetSubstring}}
+\index{cstrGetSubstring@{cstrGetSubstring}!cstr.h@{cstr.h}}
+\subsubsection[{cstrGetSubstring}]{\setlength{\rightskip}{0pt plus 5cm}int cstrGetSubstring ({\bf cstr\_\-t} {\em dst}, \/  {\bf cstr\_\-t} {\em str}, \/  unsigned long int {\em a}, \/  unsigned long int {\em b})}\label{cstr_8h_ab0479348a6d2cd6a56d6873e0499c3e1}
+
+
+Get a substring. This function extracts a substring from str and places it in dst 
+\begin{DoxyParams}{Parameters}
+\item[{\em dst}]cstr\_\-t instance which will hold the result \item[{\em str}]cstr\_\-t instance from which the substring will be extracted \item[{\em a}]left bound \item[{\em b}]right bound \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 or 1 if if fails ou succeeds, respectively 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrGetSubstring().
+
+Referenced by cstrGetSubstring(), cstrLeft(), and cstrRight().\index{cstr.h@{cstr.h}!cstrImport@{cstrImport}}
+\index{cstrImport@{cstrImport}!cstr.h@{cstr.h}}
+\subsubsection[{cstrImport}]{\setlength{\rightskip}{0pt plus 5cm}void cstrImport ({\bf cstr\_\-t} {\em str}, \/  FILE $\ast$ {\em fp})}\label{cstr_8h_aedb159608d445cebfb486b53b41c95de}
+
+
+Import from file. This function reads the contents of fp (until EOF) and puts it in str 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em fp}]input source \end{DoxyParams}
+
+
+References CSTR\_\-INIT\_\-SIZE, cstrConcatInPlaceChar(), cstrImport(), and cstrUpdate().
+
+Referenced by cstrImport().\index{cstr.h@{cstr.h}!cstrImportCharN@{cstrImportCharN}}
+\index{cstrImportCharN@{cstrImportCharN}!cstr.h@{cstr.h}}
+\subsubsection[{cstrImportCharN}]{\setlength{\rightskip}{0pt plus 5cm}void cstrImportCharN ({\bf cstr\_\-t} {\em str}, \/  const char $\ast$ {\em buffer}, \/  unsigned long int {\em n})}\label{cstr_8h_a3994fa3703291d2f3c8a80d2947fe0ef}
+
+
+Read n characters from a byte sequence. This function reads n characters (bytes) from buffer and places them in str 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em buffer}]input source \item[{\em n}]number of characters to read \end{DoxyParams}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrImportCharN().
+
+Referenced by cstrImportCharN().\index{cstr.h@{cstr.h}!cstrImportN@{cstrImportN}}
+\index{cstrImportN@{cstrImportN}!cstr.h@{cstr.h}}
+\subsubsection[{cstrImportN}]{\setlength{\rightskip}{0pt plus 5cm}void cstrImportN ({\bf cstr\_\-t} {\em str}, \/  FILE $\ast$ {\em fp}, \/  unsigned long int {\em n})}\label{cstr_8h_a380a688beb7eb68da57779c7948373c2}
+
+
+Read n characters from file. This function reads the first n characters from fp and places them in str 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em fp}]input source \item[{\em n}]number of characters to read \end{DoxyParams}
+
+
+References CSTR\_\-INIT\_\-SIZE, cstrConcatInPlaceChar(), cstrImportN(), cstrLeft(), cstrLength(), and cstrUpdate().
+
+Referenced by cstrImportN().\index{cstr.h@{cstr.h}!cstrIndexOf@{cstrIndexOf}}
+\index{cstrIndexOf@{cstrIndexOf}!cstr.h@{cstr.h}}
+\subsubsection[{cstrIndexOf}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrIndexOf ({\bf cstr\_\-t} {\em str}, \/  char {\em c})}\label{cstr_8h_a2e77e5ad2731e466e9c847f4a968c2bf}
+
+
+Get the (first) index of a character. This function returns the index of the first occurence (left to right) of the character c in the stored string 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em c}]the char \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the first occurence of c or EOF 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrIndexOf().
+
+Referenced by cstrIndexOf().\index{cstr.h@{cstr.h}!cstrInit@{cstrInit}}
+\index{cstrInit@{cstrInit}!cstr.h@{cstr.h}}
+\subsubsection[{cstrInit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cstr\_\-t} cstrInit (void)}\label{cstr_8h_a1ac20f1c480d85f94337827bfd006347}
+
+
+Create a cstr\_\-t instance. Create a cstr\_\-t instance with the default maximum string length (64 chars) This value will be reajusted when needed \begin{DoxyReturn}{Returns}
+cstr\_\-t instance 
+\end{DoxyReturn}
+
+
+References CSTR\_\-INIT\_\-SIZE, cstrInit(), and cstrInit2().
+
+Referenced by cstrInit().\index{cstr.h@{cstr.h}!cstrInit2@{cstrInit2}}
+\index{cstrInit2@{cstrInit2}!cstr.h@{cstr.h}}
+\subsubsection[{cstrInit2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cstr\_\-t} cstrInit2 (unsigned long int {\em n})}\label{cstr_8h_a46cb2656b163b60d079868b3df55e81e}
+
+
+Create a cstr\_\-t instance defining the buffer size. Create a cstr\_\-t instance defining an initial maximum string length This is only the initial maximum. This value will be reajusted when needed 
+\begin{DoxyParams}{Parameters}
+\item[{\em n}]minimum string size (will be rounded to the next power of 2) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cstr\_\-t instance 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-SIZE, CSTR\_\-STR, cstrInit2(), and powerup().
+
+Referenced by cstrInit(), cstrInit2(), and cstrInitChar().\index{cstr.h@{cstr.h}!cstrInitChar@{cstrInitChar}}
+\index{cstrInitChar@{cstrInitChar}!cstr.h@{cstr.h}}
+\subsubsection[{cstrInitChar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cstr\_\-t} cstrInitChar (char $\ast$ {\em s})}\label{cstr_8h_ade5d8c408a9d9892c131b8e6e5999e61}
+
+
+Create and initialize a cstr\_\-t instance. Create a cstr\_\-t instance and initialize it with a C string (char $\ast$) The buffer size will be powerup(strlen(s)) 
+\begin{DoxyParams}{Parameters}
+\item[{\em s}]string to initialize the cstr\_\-t instance with \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cstr\_\-t instance 
+\end{DoxyReturn}
+
+
+References cstrInit2(), cstrInitChar(), and cstrUpdate().
+
+Referenced by cstrInitChar().\index{cstr.h@{cstr.h}!cstrIsClone@{cstrIsClone}}
+\index{cstrIsClone@{cstrIsClone}!cstr.h@{cstr.h}}
+\subsubsection[{cstrIsClone}]{\setlength{\rightskip}{0pt plus 5cm}int cstrIsClone ({\bf cstr\_\-t} {\em str1}, \/  {\bf cstr\_\-t} {\em str2})}\label{cstr_8h_a1bc7e94c4a0413a0c3c428686bf46f77}
+
+
+\doxyref{cstr}{p.}{structcstr} instance comparison This function compares two \doxyref{cstr}{p.}{structcstr} instances\par
+ It returns true if both objects are exactly the same: equal strings and equal buffer size 
+\begin{DoxyParams}{Parameters}
+\item[{\em str1}]cstr\_\-t instance \item[{\em str2}]cstr\_\-t instance \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the objects are equal. 0 otherwise 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-SIZE, cstrEquals(), and cstrIsClone().
+
+Referenced by cstrIsClone().\index{cstr.h@{cstr.h}!cstrLastIndexOf@{cstrLastIndexOf}}
+\index{cstrLastIndexOf@{cstrLastIndexOf}!cstr.h@{cstr.h}}
+\subsubsection[{cstrLastIndexOf}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrLastIndexOf ({\bf cstr\_\-t} {\em str}, \/  char {\em c})}\label{cstr_8h_aa3cb9800c8f21a62032b32838a00b583}
+
+
+Get the (last) index of a character. This function returns the index of the last occurence (first, if read right to left) of the character c in the stored string 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em c}]the char \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the last occurence of c or EOF 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrLastIndexOf().
+
+Referenced by cstrLastIndexOf().\index{cstr.h@{cstr.h}!cstrLeft@{cstrLeft}}
+\index{cstrLeft@{cstrLeft}!cstr.h@{cstr.h}}
+\subsubsection[{cstrLeft}]{\setlength{\rightskip}{0pt plus 5cm}int cstrLeft ({\bf cstr\_\-t} {\em dst}, \/  {\bf cstr\_\-t} {\em str}, \/  unsigned long int {\em i})}\label{cstr_8h_a4dad938758d5fdf186d952cbce387a95}
+
+
+Get a substring starting at the beginning. This function extracts a substring from str and places it in dst 
+\begin{DoxyParams}{Parameters}
+\item[{\em dst}]cstr\_\-t instance which will hold the result \item[{\em str}]cstr\_\-t instance from which the substring will be extracted \item[{\em i}]the size of the substring \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 or 1 if if fails ou succeeds, respectively 
+\end{DoxyReturn}
+
+
+References cstrGetSubstring(), and cstrLeft().
+
+Referenced by cstrImportN(), and cstrLeft().\index{cstr.h@{cstr.h}!cstrLength@{cstrLength}}
+\index{cstrLength@{cstrLength}!cstr.h@{cstr.h}}
+\subsubsection[{cstrLength}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrLength ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_a5fa2aa8e6ce819fcea0e5dd3faca645b}
+
+
+Get string length. This function just calls the \doxyref{CSTR\_\-LEN()}{p.}{cstr_8h_a868b35ccaf1fa969526ca21366f55945} macro. It is the same as strlen(cstrlibGetChar(str)) 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the length of the string (number of characters, without $\backslash$0) 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, and cstrLength().
+
+Referenced by cstrImportN(), and cstrLength().\index{cstr.h@{cstr.h}!cstrLower@{cstrLower}}
+\index{cstrLower@{cstrLower}!cstr.h@{cstr.h}}
+\subsubsection[{cstrLower}]{\setlength{\rightskip}{0pt plus 5cm}void cstrLower ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_a1d0cd5b63fd593597a8fee29d72509db}
+
+
+Make the string lowercase. 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References cstrLower().
+
+Referenced by cstrLower().\index{cstr.h@{cstr.h}!cstrMakeSingleSpace@{cstrMakeSingleSpace}}
+\index{cstrMakeSingleSpace@{cstrMakeSingleSpace}!cstr.h@{cstr.h}}
+\subsubsection[{cstrMakeSingleSpace}]{\setlength{\rightskip}{0pt plus 5cm}void cstrMakeSingleSpace ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_adfc681a1b313a93a6315c915f6cb3a47}
+
+
+Remove extra space. This function replaces sequences of white space with a single space. For example, \char`\"{}a   b     c d\char`\"{} is transformed into \char`\"{}a b c d\char`\"{} 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrMakeSingleSpace().
+
+Referenced by cstrMakeSingleSpace().\index{cstr.h@{cstr.h}!cstrReplace@{cstrReplace}}
+\index{cstrReplace@{cstrReplace}!cstr.h@{cstr.h}}
+\subsubsection[{cstrReplace}]{\setlength{\rightskip}{0pt plus 5cm}int cstrReplace ({\bf cstr\_\-t} {\em str}, \/  const char $\ast$ {\em s1}, \/  const char $\ast$ {\em s2})}\label{cstr_8h_a3b7c6643d2a02dc1c55019bacd562b87}
+
+
+Replace a substring with another. This function searches for the first occurence of s1 in the string stored at str and replaces it with s2\par
+ The buffer size will be increased if necessary 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em s1}]the substring to find \item[{\em s2}]the substring which will replace s1 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 if it succeeds or fails, respectively 
+\end{DoxyReturn}
+
+
+References cstrReplace().
+
+Referenced by cstrReplace().\index{cstr.h@{cstr.h}!cstrReplaceAll@{cstrReplaceAll}}
+\index{cstrReplaceAll@{cstrReplaceAll}!cstr.h@{cstr.h}}
+\subsubsection[{cstrReplaceAll}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrReplaceAll ({\bf cstr\_\-t} {\em str}, \/  const char $\ast$ {\em s1}, \/  const char $\ast$ {\em s2})}\label{cstr_8h_a356680c6a84c719fa82f39f5b9e0a810}
+
+
+Replace all occurences of a substring with another. This function searches for all the occurences of s1 in the string stored at str and replaces them with s2\par
+ The buffer size will be increased if necessary 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em s1}]the substring to find \item[{\em s2}]the substring which will replace s1 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of replaced substrings 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-NICE\_\-FREE, CSTR\_\-STR, and cstrReplaceAll().
+
+Referenced by cstrReplaceAll().\index{cstr.h@{cstr.h}!cstrResize@{cstrResize}}
+\index{cstrResize@{cstrResize}!cstr.h@{cstr.h}}
+\subsubsection[{cstrResize}]{\setlength{\rightskip}{0pt plus 5cm}void cstrResize ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_a703ddfe6e4a4e689255972329f666c41}
+
+
+Re-\/calculate minimum buffer size. This function re-\/calculates the minimum buffer size that is needed to keep the current string. If it is less than the currently allocated, the extra memory will be freed\par
+ This is the only way to make the buffer smaller. All the other functions will only increase its size when needed 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance to be resized \end{DoxyParams}
+
+
+References CSTR\_\-LEN, CSTR\_\-SIZE, CSTR\_\-STR, cstrResize(), and powerup().
+
+Referenced by cstrResize().\index{cstr.h@{cstr.h}!cstrReverse@{cstrReverse}}
+\index{cstrReverse@{cstrReverse}!cstr.h@{cstr.h}}
+\subsubsection[{cstrReverse}]{\setlength{\rightskip}{0pt plus 5cm}void cstrReverse ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_abfeae45e83539cbd39ebf67663fc5b40}
+
+
+String reverse. This function reverses the string stored in str. For example, \char`\"{}abc\char`\"{} is changed to \char`\"{}cba\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrReverse().
+
+Referenced by cstrReverse().\index{cstr.h@{cstr.h}!cstrRight@{cstrRight}}
+\index{cstrRight@{cstrRight}!cstr.h@{cstr.h}}
+\subsubsection[{cstrRight}]{\setlength{\rightskip}{0pt plus 5cm}int cstrRight ({\bf cstr\_\-t} {\em dst}, \/  {\bf cstr\_\-t} {\em str}, \/  unsigned long int {\em i})}\label{cstr_8h_a0a878067f6fd0e797dc7d8d9a1da9d1a}
+
+
+Get a substring starting at the end. This function extracts a substring from str and places it in dst 
+\begin{DoxyParams}{Parameters}
+\item[{\em dst}]cstr\_\-t instance which will hold the result \item[{\em str}]cstr\_\-t instance from which the substring will be extracted \item[{\em i}]the size of the substring \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 or 1 if if fails ou succeeds, respectively 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, cstrGetSubstring(), and cstrRight().
+
+Referenced by cstrRight().\index{cstr.h@{cstr.h}!cstrSearch@{cstrSearch}}
+\index{cstrSearch@{cstrSearch}!cstr.h@{cstr.h}}
+\subsubsection[{cstrSearch}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrSearch ({\bf cstr\_\-t} {\em str}, \/  char $\ast$ {\em s})}\label{cstr_8h_af30384e29fbb07179d17b6785fbfb4b2}
+
+
+Search for a substring. This function searches for the first occurence of s in the string stored at str\par
+ Currently uses the KMP algorithm 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \item[{\em s}]the substring to find \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of str where the match occured or \doxyref{CSTR\_\-LEN(str)}{p.}{cstr_8h_a868b35ccaf1fa969526ca21366f55945} if s was not found 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-NICE\_\-FREE, CSTR\_\-STR, and cstrSearch().
+
+Referenced by cstrSearch().\index{cstr.h@{cstr.h}!cstrSize@{cstrSize}}
+\index{cstrSize@{cstrSize}!cstr.h@{cstr.h}}
+\subsubsection[{cstrSize}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int cstrSize ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_ad54b7eb3de3369b3b8cb4371c85679d0}
+
+
+Get buffer size. This function just calls the \doxyref{CSTR\_\-SIZE()}{p.}{cstr_8h_a3d732d81dd5dc2eadfb00d1916245d2e} macro, which gives the ammount of currently allocated memory. In other words, it returns the length of the biggest string that is possible to store in str 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the size of the currently allocated string buffer 
+\end{DoxyReturn}
+
+
+References CSTR\_\-SIZE, and cstrSize().
+
+Referenced by cstrSize().\index{cstr.h@{cstr.h}!cstrStrip@{cstrStrip}}
+\index{cstrStrip@{cstrStrip}!cstr.h@{cstr.h}}
+\subsubsection[{cstrStrip}]{\setlength{\rightskip}{0pt plus 5cm}void cstrStrip ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_a8c25674b3219457d5035e0eaba01213e}
+
+
+Remove white space from both the beginning and the end of the string. 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References cstrStrip(), cstrStripL(), and cstrStripR().
+
+Referenced by cstrStrip().\index{cstr.h@{cstr.h}!cstrStripL@{cstrStripL}}
+\index{cstrStripL@{cstrStripL}!cstr.h@{cstr.h}}
+\subsubsection[{cstrStripL}]{\setlength{\rightskip}{0pt plus 5cm}void cstrStripL ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_a1d06f39855f2f8436f1d9633e57ce60d}
+
+
+Remove white space from the beginning of the string. 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrStripL().
+
+Referenced by cstrStrip(), and cstrStripL().\index{cstr.h@{cstr.h}!cstrStripR@{cstrStripR}}
+\index{cstrStripR@{cstrStripR}!cstr.h@{cstr.h}}
+\subsubsection[{cstrStripR}]{\setlength{\rightskip}{0pt plus 5cm}void cstrStripR ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_a974921026636f3ffe20b1562c5a3f341}
+
+
+Remove white space from the end of the string. 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, and cstrStripR().
+
+Referenced by cstrStrip(), and cstrStripR().\index{cstr.h@{cstr.h}!cstrSwapCase@{cstrSwapCase}}
+\index{cstrSwapCase@{cstrSwapCase}!cstr.h@{cstr.h}}
+\subsubsection[{cstrSwapCase}]{\setlength{\rightskip}{0pt plus 5cm}void cstrSwapCase ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_a1d66e07c7b4fccbe84a3fe4c889ea372}
+
+
+Switch upper with lower case and vice-\/versa. This function replaces every lower case character with the correspondent upper case and vice-\/versa 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References cstrSwapCase().
+
+Referenced by cstrSwapCase().\index{cstr.h@{cstr.h}!cstrUpdate@{cstrUpdate}}
+\index{cstrUpdate@{cstrUpdate}!cstr.h@{cstr.h}}
+\subsubsection[{cstrUpdate}]{\setlength{\rightskip}{0pt plus 5cm}int cstrUpdate ({\bf cstr\_\-t} {\em str}, \/  const char $\ast$ {\em s})}\label{cstr_8h_aaa520bb9dff43b1910c03c7742c16b30}
+
+
+Store a new string in a \doxyref{cstr}{p.}{structcstr} instance. This function stores the string s in the \doxyref{cstr}{p.}{structcstr} instance \par
+ The buffer will not be resized. If needed, it will be increased, but to make smaller (thus freeing some memory) you must call \doxyref{cstrResize()}{p.}{cstr_8h_a703ddfe6e4a4e689255972329f666c41} 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance to store a new string \item[{\em s}]char array to be stored in str \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 or 1 if it fails or succeeds, respectively 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-SIZE, CSTR\_\-STR, and cstrUpdate().
+
+Referenced by cstrCopy(), cstrImport(), cstrImportN(), cstrInitChar(), cstrUpdate(), and cstrUpdateFormat().\index{cstr.h@{cstr.h}!cstrUpdateFormat@{cstrUpdateFormat}}
+\index{cstrUpdateFormat@{cstrUpdateFormat}!cstr.h@{cstr.h}}
+\subsubsection[{cstrUpdateFormat}]{\setlength{\rightskip}{0pt plus 5cm}int cstrUpdateFormat ({\bf cstr\_\-t} {\em str}, \/  char $\ast$ {\em fmt}, \/   {\em ...})}\label{cstr_8h_a77d45ab63d49fdbadb87c3833c5e49bc}
+
+
+Store a new string in a \doxyref{cstr}{p.}{structcstr} instance according to a format. This function stores a new string in the \doxyref{cstr}{p.}{structcstr} instance according to a format. The format specifiers are the following:\par
+ \%s -\/ a C null terminated string\par
+ \%d -\/ a C int\par
+ \%A -\/ a cstr\_\-t instance\par
+\par
+ An example: suppose you want to create the string \char`\"{}select $\ast$ from t where u='x' and p='y'\char`\"{}. Both values x and y are strings. You have one as a cstr\_\-t instance, a1, and the other as a C null terminated string, s1. The following code will do it:\par
+\par
+ cstrUpdate(str1, \char`\"{}select $\ast$ from t where u='\%A' and p='\%s'\char`\"{}, a1, s1); 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance to store a new string \item[{\em fmt}]the format string \item[{\em ...}]the remainder arguments, in the same order as they appear in fmt \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 or 1 if it fails or succeeds, respectively 
+\end{DoxyReturn}
+
+
+References CSTR\_\-LEN, CSTR\_\-STR, cstrConcatInPlace(), cstrConcatInPlaceChar(), cstrUpdate(), and cstrUpdateFormat().
+
+Referenced by cstrUpdateFormat().\index{cstr.h@{cstr.h}!cstrUpper@{cstrUpper}}
+\index{cstrUpper@{cstrUpper}!cstr.h@{cstr.h}}
+\subsubsection[{cstrUpper}]{\setlength{\rightskip}{0pt plus 5cm}void cstrUpper ({\bf cstr\_\-t} {\em str})}\label{cstr_8h_aab82f658391fe356dba841b3ff4ada4a}
+
+
+Make the string uppercase. 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]cstr\_\-t instance \end{DoxyParams}
+
+
+References cstrUpper().
+
+Referenced by cstrUpper().\index{cstr.h@{cstr.h}!powerup@{powerup}}
+\index{powerup@{powerup}!cstr.h@{cstr.h}}
+\subsubsection[{powerup}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int powerup (unsigned long int {\em n})}\label{cstr_8h_a9bfec8d0531ca92a93ec879468738558}
+
+
+Get the next power of 2. This function computes the smallest k, such that k is a power of 2 and k $>$ n \par
+ If n is already a power of two, it returns 2$\ast$n 
+\begin{DoxyParams}{Parameters}
+\item[{\em n}]integer (not a power of two) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+smallest power of 2 greater than n 
+\end{DoxyReturn}
+
+
+References powerup().
+
+Referenced by cstrInit2(), cstrResize(), and powerup().
